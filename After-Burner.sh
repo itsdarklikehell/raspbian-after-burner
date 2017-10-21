@@ -162,6 +162,7 @@ source /etc/profile
 
 }
 BLATHER(){
+sudo apt-get install espeak
 cd
 git clone https://github.com/itsdarklikehell/blather/
 cd blather
