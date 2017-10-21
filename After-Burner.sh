@@ -87,10 +87,86 @@ sudo apt-get install emby-server
 }
 
 METASPLOIT(){
+# QUICK AND DIRTY (NIGHTLY)
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
+  chmod 755 msfinstall && \
+  ./msfinstall
+
+# NORMAL MANUALINSTALLATION
+# We start by adding the Oracle Java Package source
+sudo add-apt-repository -y ppa:webupd8team/java
+#Once added we can install the latest version
+sudo apt-get update
+sudo apt-get -y install oracle-java8-installer
+#We start by making sure that we have the latest packages by updating the system using apt-get:
+sudo apt-get update
+sudo apt-get upgrade
+#Now that we know that we are running an updated system we can install all the dependent packages that are needed by Metasploit Framework:
+sudo apt-get install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev
+
+#Installing Ruby using RVM:
+curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+curl -L https://get.rvm.io | bash -s stable
+source ~/.rvm/scripts/rvm
+echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
+source ~/.bashrc
+RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+rvm install $RUBYVERSION
+rvm use $RUBYVERSION --default
+ruby -v
+
+# Installing Ruby using rbenv:
+#cd ~
+#git clone git://github.com/sstephenson/rbenv.git .rbenv
+#echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+#echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+#exec $SHELL
+
+#git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+#echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+
+# sudo plugin so we can run Metasploit as root with "rbenv sudo msfconsole" 
+#git clone git://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sudo
+
+#exec $SHELL
+
+#RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+#rbenv install $RUBYVERSION
+#rbenv global $RUBYVERSION
+#ruby -v
+
+# We will download the latest version of Metasploit Framework via Git so we can use msfupdate to keep it updated:
+
+cd /opt
+sudo git clone https://github.com/rapid7/metasploit-framework.git
+sudo chown -R `whoami` /opt/metasploit-framework
+cd metasploit-framework
+
+# If using RVM set the default gem set that is create when you navigate in to the folder
+rvm --default use ruby-${RUBYVERSION}@metasploit-framework
+gem install bundler
+bundle install
+sudo bash -c 'for MSF in $(ls msf*); do ln -s /opt/metasploit-framework/$MSF /usr/local/bin/$MSF;done'
+touch /opt/metasploit-framework/config/database.yml
+echo "production:" > /opt/metasploit-framework/config/database.yml
+echo " adapter: postgresql" >> /opt/metasploit-framework/config/database.yml
+echo " database: msf" >> /opt/metasploit-framework/config/database.yml
+echo " username: msf" >> /opt/metasploit-framework/config/database.yml
+echo " password: " >> /opt/metasploit-framework/config/database.yml
+echo " host: 127.0.0.1" >> /opt/metasploit-framework/config/database.yml
+echo " port: 5432" >> /opt/metasploit-framework/config/database.yml
+echo " pool: 75" >> /opt/metasploit-framework/config/database.yml
+echo " timeout: 5" >> /opt/metasploit-framework/config/database.yml
+sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
+source /etc/profile
 
 }
 BLATHER(){
-
+cd
+git clone https://github.com/itsdarklikehell/blather/
+cd blather
+chmod +x Blather-Installer
+./Blather-Installer
 }
 UPGR8
 RASPICONFIG
@@ -102,3 +178,4 @@ AWSMRETRPIBGM
 CRE8AP
 EMBY
 METASPLOIT
+BLATHER
