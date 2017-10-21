@@ -89,7 +89,9 @@ sudo apt-get install emby-server
 METASPLOIT(){
 
 }
+BLATHER(){
 
+}
 UPGR8
 RASPICONFIG
 ENSSH
