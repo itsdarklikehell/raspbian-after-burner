@@ -54,7 +54,7 @@ echo "'(sudo python /home/pi/PyScripts/bgm-v103.py) &'"
 
 CRE8AP(){
 #	install create_ap
-sudo apt-get install curl git bash util-linux procps hostaptd iproute iw haveged dnsmasq iptables -y
+sudo apt-get install curl git bash util-linux procps hostapd iproute iw haveged dnsmasq iptables -y
 cd
 #	curl installer method
 #curl -Ls https://github.com/itsdarklikehell/create_ap/raw/master/install.sh
