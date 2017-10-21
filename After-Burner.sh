@@ -170,6 +170,12 @@ chmod +x Blather-Installer
 ./Blather-Installer
 }
 
+FLUXION(){
+cd
+git clone --recursive https://github.com/FluxionNetwork/fluxion.git # Download the latest revision
+cd fluxion # Switch to tool's directory
+./fluxion.sh # Run fluxion (missing dependencies will be auto-installed)
+}
 
 
 
@@ -184,3 +190,4 @@ UPGR8
 EMBY
 #METASPLOIT
 BLATHER
+FLUXION
