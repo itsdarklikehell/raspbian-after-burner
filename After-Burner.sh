@@ -177,7 +177,9 @@ cd fluxion # Switch to tool's directory
 ./fluxion.sh # Run fluxion (missing dependencies will be auto-installed)
 }
 
-
+HYDRA(){
+sudo apt-get install hydra hydra-gtk
+}
 
 UPGR8
 #RASPICONFIG
@@ -191,3 +193,4 @@ EMBY
 #METASPLOIT
 BLATHER
 FLUXION
+HYDRA
