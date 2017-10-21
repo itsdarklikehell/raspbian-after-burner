@@ -86,6 +86,9 @@ sudo apt-get install emby-server
 #Getting ffmpeg: https://www.johnvansickle.com/ffmpeg/ openSUSE installation: 1. Install an openSUSE image for your corresponding board: Full Index: https://en.opensuse.org/Portal:ARM RPI2: https://en.opensuse.org/HCL:Raspberry_Pi2 RPI3: https://en.opensuse.org/HCL:Raspberry_Pi3 2. Add emby repo. https://software.opensuse.org/download.html?project=home%3Aemby&package=emby-server 3. Install. sudo zypper in emby-server 
 }
 
+METASPLOIT(){
+
+}
 
 UPGR8
 RASPICONFIG
@@ -96,3 +99,4 @@ RETROPIESETUP
 AWSMRETRPIBGM
 CRE8AP
 EMBY
+METASPLOIT
