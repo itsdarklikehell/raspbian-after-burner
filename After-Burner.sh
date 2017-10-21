@@ -183,7 +183,7 @@ sudo apt-get install hydra hydra-gtk
 
 JTRJOHNNY(){
 cd
-sudo apt-get install g++ git qtbase5-dev
+sudo apt-get install g++ git qtbase5-dev john
 git clone https://github.com/shinnok/johnny.git 
 cd johnny
 git checkout v2.2 # switch to the desired version
