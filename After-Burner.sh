@@ -18,17 +18,18 @@ sudo touch /boot/ssh
 LOCL(){
 #	update localization
 echo "update locale"
-update-locale
+sudo update-locale
 }
 
 RETROPIE(){
 #	clone retropie setup git
 sudo apt-get install git lsb-release -y
 cd
-cd git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
+git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
 }
 
 RETROPIESETUP(){
+cd
 cd RetroPie-Setup
 chmod +x retropie_setup.sh
 sudo ./retropie_setup.sh
@@ -44,10 +45,11 @@ cd
 mkdir PyScript
 cd PyScript
 wget https://pastebin.com/raw/7E9JiZGQ
-cat 7E9JiZGQ bgm-v103.py
+cat 7E9JiZGQ > bgm-v103.py
 sudo nano bgm-v103.py
 echo "Run 'sudo nano /etc/rc.local'"
-echo "Above exit 0, put the following code: '(sudo python /home/pi/PyScripts/bgm-v103.py) &'"
+echo "Above exit 0, put the following code:"
+echo "'(sudo python /home/pi/PyScripts/bgm-v103.py) &'"
 }
 
 CRE8AP(){
@@ -76,7 +78,8 @@ EMBY(){
 #docker run -it --rm \ --volume /usr/local/bin:/target \ emby/embyserver:aarch64 instl 
 
 #Installing directly on raspbian or other debian directive without docker (armhf/armv7/aarch64): 
-wget -qO - http://download.opensuse.org/repositories/home:emby/xUbuntu_14.04/Release.key | sudo apt-key add - sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
+wget -qO - http://download.opensuse.org/repositories/home:emby/xUbuntu_14.04/Release.key | sudo apt-key add - 
+sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/ /' >> /etc/apt/sources.list.d/emby-server.list"
 sudo apt-get update
 sudo apt-get install emby-server
 
