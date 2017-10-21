@@ -25,7 +25,7 @@ RETROPIE(){
 #	clone retropie setup git
 sudo apt-get install git lsb-release -y
 cd
-#cd git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
+cd git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
 }
 
 RETROPIESETUP(){
@@ -57,12 +57,12 @@ cd
 #	curl installer method
 #curl -Ls https://github.com/itsdarklikehell/create_ap/raw/master/install.sh
 #	git clone method
-#git clone https://github.com/itsdarklikehell/create_ap
-#cd create_ap
-#sudo make install
-#sudo nano /etc/create_ap.conf   #	edit the config
-#sudo systemctl start create_ap  #	start the hotspot
-#sudo systemctl enable create_ap #	set to enable at boot
+git clone https://github.com/itsdarklikehell/create_ap
+cd create_ap
+sudo make install
+sudo nano /etc/create_ap.conf   #	edit the config
+sudo systemctl start create_ap  #	start the hotspot
+sudo systemctl enable create_ap #	set to enable at boot
 }
 
 EMBY(){
