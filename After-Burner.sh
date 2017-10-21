@@ -181,6 +181,18 @@ HYDRA(){
 sudo apt-get install hydra hydra-gtk
 }
 
+JTRJOHNNY(){
+cd
+sudo apt-get install g++ git qtbase5-dev
+git clone https://github.com/shinnok/johnny.git 
+cd johnny
+git checkout v2.2 # switch to the desired version
+export QT_SELECT=qt5
+qmake
+make -j$(nproc)
+#./johnny
+}
+
 UPGR8
 #RASPICONFIG
 #ENSSH
