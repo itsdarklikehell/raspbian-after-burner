@@ -1,5 +1,6 @@
 #!/bin/bash
 INSTLL="sudo apt-get install -y "
+espeak "starting raspbian after burner script"
 
 UPGR8(){
 #	update and upgrade system first, pretty obvious.
