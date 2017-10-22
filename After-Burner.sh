@@ -245,17 +245,6 @@ sudo apt-get install p0f
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 UPGR8
 #RASPICONFIG
 #ENSSH
@@ -266,30 +255,66 @@ UPGR8
 #CRE8AP
 EMBY
 #METASPLOIT
-BLATHER
-FLUXION
-HYDRA
-WIRESHARK
-SQLMAP
-CAIN
-NIKTO
-ETHERAPE
-ETTERCAP
-
-KISMET
-NETCAT
-NGREP
-NTOP
+#BLATHER
+#FLUXION
+#HYDRA
+#WIRESHARK
+#SQLMAP
+#CAIN
+#NIKTO
+#ETHERAPE
+#ETTERCAP
+#KISMET
+#NETCAT
+#NGREP
+#NTOP
 
 #### Remove Bloatware
 
 
-#sudo apt-get purge wolfram-engine libreoffice*
+#sudo apt-get purge wolfram-engine libreoffice* scratch nuscratch digital-scratch-handler penguinspuzzle pistore sonic-pi minecraft-pi python-minecraftpi debian-reference-*  
 
 CLNUP(){
 sudo apt-get clean
 sudo apt-get autoremove
 }
 
+REMJAVA(){
+sudo apt-get purge oracle-java8-jdk oracle-java7-jdk openjdk*
+}
 
-CLNUP
+REMARTWORK(){
+sudo apt-get purge raspberrypi-artwork
+}
+
+REMEPIPHANY(){
+sudo apt-get purge epiphany-browser
+}
+
+REMNETSURF(){
+sudo apt-get purge netsurf-gtk
+}
+
+
+# GUI-related packages
+# pkgs="lxde lxtask menu-xdg gksu xserver-xorg-video-fb turboxpdf gtk2-engines alsa-utils zenity desktop-base lxpolkit weston omxplayer  lightdm gnome-themes-standard-data gnome-icon-theme qt50-snapshot qt50-quick-particle-examples" 
+
+# Edu-related packages
+# pkgs="$pkgs idle python3-pygame python-pygame python-tk idle3 python3-tk python3-rpi.gpio python-serial python3-serial python-picamera python3-picamera python3-pygame python-pygame python-tk python3-tk dillo x2x  timidity smartsim  python3-numpy python3-piface common python3-piface digitalio python3-piface  python-piface common python-piface digitalio oracle-java8-jdk "
+# Because of of https://github.com/RPi-Distro/raspberrypi-ui-mods/issues/2 (thanks @robertely)
+# echo apt-get -y remove raspberrypi-ui-mods 
+# Remove packages
+# for i in $pkgs; do	echo apt-get -y remove --purge $i
+#done 
+# Remove automatically installed dependency packages
+#echo apt-get -y autoremove 
+# Remove all packages marked rc (thanks @symm)
+#dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs dpkg --purge 
+
+
+
+#REMJAVA
+#REMARTWORK
+#REMEPIPHANY
+#REMNETSURF
+#CLNUP
