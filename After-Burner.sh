@@ -101,7 +101,6 @@ UPGR8
 $INSTLL oracle-java8-installer
 #We start by making sure that we have the latest packages by updating the system using apt-get:
 UPGR8
-UPGR8
 #Now that we know that we are running an updated system we can install all the dependent packages that are needed by Metasploit Framework:
 $INSTLL build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev zenmap nmap
 
@@ -207,47 +206,47 @@ sudo gpasswd -a $USER wireshark
 }
 
 CAIN(){
-INSTLL cain cain-solvers cain-examples
+$INSTLL cain cain-solvers cain-examples
 }
 
 NIKTO(){
-INSTLL nikto
+$INSTLL nikto
 }
 
 ETHERAPE(){
-INSTLL etherape
+$INSTLL etherape
 }
 
 ETTERCAP(){
-INSTLL ettercap
+$INSTLL ettercap
 }
 
 KISMET(){
-INSTLL kismet
+$INSTLL kismet
 }
 
 NETCAT(){
-INSTLL netcat
+$INSTLL netcat
 }
 
 NGREP(){
-INSTLL ngrep
+$INSTLL ngrep
 }
 
 NTOP(){
-INSTLL ntop
+$INSTLL ntop
 }
 
 P0F(){
-INSTLL p0f
+$INSTLL p0f
 }
 
 AIRCRACK(){
-INSTLL aircrack-ng
+$INSTLL aircrack-ng
 }
 
 REAVER(){
-INSTLL reaver
+$INSTLL reaver
 }
 
 WORDLISTS(){
