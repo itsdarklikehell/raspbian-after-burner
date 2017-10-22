@@ -314,4 +314,4 @@ sudo apt-get purge netsurf-gtk
 #REMARTWORK
 #REMEPIPHANY
 #REMNETSURF
-#CLNUP
+CLNUP
