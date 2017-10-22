@@ -245,6 +245,10 @@ AIRCRACK(){
 sudo apt-get install aircrack-ng
 }
 
+REAVER(){
+sudo apt-get install reaver
+}
+
 WORDLISTS(){
 cd
 git clone https://github.com/danielmiessler/SecLists/tree/master/Passwords wordlists
@@ -275,6 +279,7 @@ NGREP
 NTOP
 AIRCRACK
 WORDLISTS
+REAVER
 
 #### Remove Bloatware
 
