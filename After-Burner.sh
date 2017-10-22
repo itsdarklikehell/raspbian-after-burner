@@ -1,4 +1,5 @@
 #!/bin/bash
+INSTLL="sudo apt-get install -y "
 
 UPGR8(){
 #	update and upgrade system first, pretty obvious.
@@ -23,7 +24,7 @@ sudo update-locale
 
 RETROPIE(){
 #	clone retropie setup git
-sudo apt-get install git lsb-release -y
+$INSTLL git lsb-release
 cd
 git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
 }
@@ -40,7 +41,7 @@ AWSMRETRPIBGM(){
 #	for more instructions please read:
 #	https://retropie.org.uk/forum/topic/347/background-music-continued-from-help-support
 #
-sudo apt-get install wget python-pygame
+$INSTLL wget python-pygame
 cd
 mkdir PyScript
 cd PyScript
@@ -54,7 +55,7 @@ echo "'(sudo python /home/pi/PyScripts/bgm-v103.py) &'"
 
 CRE8AP(){
 #	install create_ap
-sudo apt-get install curl git bash util-linux procps hostapd iproute iw haveged dnsmasq iptables -y
+$INSTLL curl git bash util-linux procps hostapd iproute iw haveged dnsmasq iptables
 cd
 #	curl installer method
 #curl -Ls https://github.com/itsdarklikehell/create_ap/raw/master/install.sh
@@ -80,8 +81,8 @@ EMBY(){
 #Installing directly on raspbian or other debian directive without docker (armhf/armv7/aarch64): 
 wget -qO - http://download.opensuse.org/repositories/home:emby/xUbuntu_14.04/Release.key | sudo apt-key add -
 sudo echo "deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/" > /etc/apt/sources.list.d/emby-server.list
-sudo apt-get update
-sudo apt-get install emby-server
+UPGR8
+$INSTLL emby-server
 
 #Getting ffmpeg: https://www.johnvansickle.com/ffmpeg/ openSUSE installation: 1. Install an openSUSE image for your corresponding board: Full Index: https://en.opensuse.org/Portal:ARM RPI2: https://en.opensuse.org/HCL:Raspberry_Pi2 RPI3: https://en.opensuse.org/HCL:Raspberry_Pi3 2. Add emby repo. https://software.opensuse.org/download.html?project=home%3Aemby&package=emby-server 3. Install. sudo zypper in emby-server 
 }
@@ -96,13 +97,13 @@ curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/t
 # We start by adding the Oracle Java Package source
 sudo add-apt-repository -y ppa:webupd8team/java
 #Once added we can install the latest version
-sudo apt-get update
-sudo apt-get -y install oracle-java8-installer
+UPGR8
+$INSTLL oracle-java8-installer
 #We start by making sure that we have the latest packages by updating the system using apt-get:
-sudo apt-get update
-sudo apt-get upgrade
+UPGR8
+UPGR8
 #Now that we know that we are running an updated system we can install all the dependent packages that are needed by Metasploit Framework:
-sudo apt-get install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev zenmap nmap
+$INSTLL build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev zenmap nmap
 
 #Installing Ruby using RVM:
 curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
@@ -162,7 +163,7 @@ source /etc/profile
 
 }
 BLATHER(){
-sudo apt-get install espeak
+$INSTLL espeak
 cd
 git clone https://github.com/itsdarklikehell/blather/
 cd blather
@@ -178,12 +179,12 @@ sudo ./fluxion.sh # Run fluxion (missing dependencies will be auto-installed)
 }
 
 HYDRA(){
-sudo apt-get install hydra hydra-gtk
+$INSTLL hydra hydra-gtk
 }
 
 JTRJOHNNY(){
 cd
-sudo apt-get install g++ git qtbase5-dev john
+$INSTLL g++ git qtbase5-dev john
 git clone https://github.com/shinnok/johnny.git 
 cd johnny
 git checkout v2.2 # switch to the desired version
@@ -201,52 +202,52 @@ ln -s /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
 }
 
 WIRESHARK(){
-sudo apt-get install wireshark tshark
+$INSTLL wireshark tshark
 sudo gpasswd -a $USER wireshark
 }
 
 CAIN(){
-sudo apt-get install cain cain-solvers cain-examples
+INSTLL cain cain-solvers cain-examples
 }
 
 NIKTO(){
-sudo apt-get install nikto
+INSTLL nikto
 }
 
 ETHERAPE(){
-sudo apt-get install etherape
+INSTLL etherape
 }
 
 ETTERCAP(){
-sudo apt-get install ettercap
+INSTLL ettercap
 }
 
 KISMET(){
-sudo apt-get install kismet
+INSTLL kismet
 }
 
 NETCAT(){
-sudo apt-get install netcat
+INSTLL netcat
 }
 
 NGREP(){
-sudo apt-get install ngrep
+INSTLL ngrep
 }
 
 NTOP(){
-sudo apt-get install ntop
+INSTLL ntop
 }
 
 P0F(){
-sudo apt-get install p0f
+INSTLL p0f
 }
 
 AIRCRACK(){
-sudo apt-get install aircrack-ng
+INSTLL aircrack-ng
 }
 
 REAVER(){
-sudo apt-get install reaver
+INSTLL reaver
 }
 
 WORDLISTS(){
@@ -255,7 +256,7 @@ git clone https://github.com/danielmiessler/SecLists/tree/master/Passwords wordl
 }
 
 PIXIEWPS(){
-sudo apt-get -y install build-essential
+$INSTLL build-essential
 cd
 git clone https://github.com/wiire/pixiewps
 cd pixiewps*/
@@ -276,11 +277,11 @@ sudo dpkg -i Fern*.deb
 }
 
 CRUNCH(){
-#sudo apt-get install crunch
+#INSTLL crunch
 }
 
 WASH(){
-#sudo apt-get install wash
+#INSTLL wash
 }
 
 UPGR8
