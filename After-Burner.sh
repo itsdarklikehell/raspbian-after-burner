@@ -102,7 +102,7 @@ sudo apt-get -y install oracle-java8-installer
 sudo apt-get update
 sudo apt-get upgrade
 #Now that we know that we are running an updated system we can install all the dependent packages that are needed by Metasploit Framework:
-sudo apt-get install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev
+sudo apt-get install build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev zenmap nmap
 
 #Installing Ruby using RVM:
 curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
@@ -193,6 +193,69 @@ make -j$(nproc)
 #./johnny
 }
 
+SQLMAP(){
+cd
+git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap
+cd /opt/sqlmap
+ln -s /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
+}
+
+WIRESHARK(){
+sudo apt-get install wireshark tshark
+}
+
+CAIN(){
+sudo apt-get install cain cain-solvers cain-examples
+}
+
+NIKTO(){
+sudo apt-get install nikto
+}
+
+ETHERAPE(){
+sudo apt-get install etherape
+}
+
+ETTERCAP(){
+sudo apt-get install ettercap
+}
+
+INSSIDDR(){
+
+}
+
+KISMET(){
+sudo apt-get install kismet
+}
+
+NETCAT(){
+sudo apt-get install netcat
+}
+
+NGREP(){
+sudo apt-get install ngrep
+}
+
+NTOP(){
+sudo apt-get install ntop
+}
+
+P0F(){
+sudo apt-get install p0f
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 UPGR8
 #RASPICONFIG
 #ENSSH
@@ -206,3 +269,27 @@ EMBY
 BLATHER
 FLUXION
 HYDRA
+WIRESHARK
+SQLMAP
+CAIN
+NIKTO
+ETHERAPE
+ETTERCAP
+
+KISMET
+NETCAT
+NGREP
+NTOP
+
+#### Remove Bloatware
+
+
+#sudo apt-get purge wolfram-engine libreoffice*
+
+CLNUP(){
+sudo apt-get clean
+sudo apt-get autoremove
+}
+
+
+CLNUP
