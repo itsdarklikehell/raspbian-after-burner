@@ -283,6 +283,14 @@ WASH(){
 $INSTLL wash
 }
 
+SETOOLKIT(){
+$INSTLL git apache2 python-requests libapache2-mod-php python-pymssql build-essential python-pexpect python-pefile python-crypto python-openssl
+cd
+git clone https://github.com/trustedsec/social-engineer-toolkit/ set/
+cd set
+python setup.py install
+}
+
 UPGR8
 #RASPICONFIG
 #ENSSH
@@ -292,13 +300,13 @@ UPGR8
 #AWSMRETRPIBGM
 #CRE8AP
 #EMBY
-#METASPLOIT
+METASPLOIT
 #BLATHER
-FLUXION
-HYDRA
-WIRESHARK
-SQLMAP
-CAIN
+#FLUXION
+#HYDRA
+#WIRESHARK
+#SQLMAP
+#CAIN
 NIKTO
 ETHERAPE
 ETTERCAP
@@ -314,6 +322,7 @@ WIFITE
 #FERN
 #CRUNCH
 #WASH
+SETOOLKIT
 
 #### Remove Bloatware
 
