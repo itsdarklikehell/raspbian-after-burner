@@ -254,6 +254,35 @@ cd
 git clone https://github.com/danielmiessler/SecLists/tree/master/Passwords wordlists
 }
 
+PIXIEWPS(){
+sudo apt-get -y install build-essential
+cd
+git clone https://github.com/wiire/pixiewps
+cd pixiewps*/
+cd src/
+make
+sudo make install
+}
+WIFITE(){
+wget https://raw.github.com/derv82/wifite/master/wifite.py
+chmod +x wifite.py
+#./wifite.py
+}
+
+FERN(){
+cd
+wget http://www.fern-pro.com/download
+sudo dpkg -i Fern*.deb
+}
+
+CRUNCH(){
+#sudo apt-get install crunch
+}
+
+WASH(){
+#sudo apt-get install wash
+}
+
 UPGR8
 #RASPICONFIG
 #ENSSH
@@ -280,6 +309,11 @@ NTOP
 AIRCRACK
 WORDLISTS
 REAVER
+PIXIEWPS
+WIFITE
+#FERN
+#CRUNCH
+#WASH
 
 #### Remove Bloatware
 
