@@ -245,6 +245,11 @@ AIRCRACK(){
 sudo apt-get install aircrack-ng
 }
 
+WORDLISTS(){
+cd
+git clone https://github.com/danielmiessler/SecLists/tree/master/Passwords wordlists
+}
+
 UPGR8
 #RASPICONFIG
 #ENSSH
@@ -269,6 +274,7 @@ NETCAT
 NGREP
 NTOP
 AIRCRACK
+WORDLISTS
 
 #### Remove Bloatware
 
