@@ -8,6 +8,10 @@ echo "update and upgrade system"
   sudo apt-get upgrade -y
 }
 
+ALLDONE(){
+espeak "all done sir"
+}
+
 RASPICONF(){
 raspi-config
 }
@@ -373,3 +377,4 @@ sudo apt-get purge netsurf-gtk
 #REMEPIPHANY
 #REMNETSURF
 CLNUP
+ALLDONE
