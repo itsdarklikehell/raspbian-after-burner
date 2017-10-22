@@ -202,6 +202,7 @@ ln -s /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
 
 WIRESHARK(){
 sudo apt-get install wireshark tshark
+sudo gpasswd -a $USER wireshark
 }
 
 CAIN(){
