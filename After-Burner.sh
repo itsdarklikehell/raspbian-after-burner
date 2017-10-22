@@ -241,6 +241,9 @@ P0F(){
 sudo apt-get install p0f
 }
 
+AIRCRACK(){
+sudo apt-get install aircrack-ng
+}
 
 UPGR8
 #RASPICONFIG
@@ -265,6 +268,7 @@ KISMET
 NETCAT
 NGREP
 NTOP
+AIRCRACK
 
 #### Remove Bloatware
 
