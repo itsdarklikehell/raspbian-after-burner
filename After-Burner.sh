@@ -277,11 +277,11 @@ sudo dpkg -i Fern*.deb
 }
 
 CRUNCH(){
-#INSTLL crunch
+$INSTLL crunch
 }
 
 WASH(){
-#INSTLL wash
+$INSTLL wash
 }
 
 UPGR8
