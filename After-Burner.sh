@@ -220,9 +220,6 @@ ETTERCAP(){
 sudo apt-get install ettercap
 }
 
-INSSIDDR(){
-}
-
 KISMET(){
 sudo apt-get install kismet
 }
