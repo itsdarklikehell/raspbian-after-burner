@@ -164,8 +164,8 @@ echo " pool: 75" >> /opt/metasploit-framework/config/database.yml
 echo " timeout: 5" >> /opt/metasploit-framework/config/database.yml
 sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
 source /etc/profile
-
 }
+
 BLATHER(){
 $INSTLL espeak
 cd
