@@ -104,8 +104,6 @@ sudo add-apt-repository -y ppa:webupd8team/java
 #Once added we can install the latest version
 UPGR8
 $INSTLL oracle-java8-installer
-#We start by making sure that we have the latest packages by updating the system using apt-get:
-UPGR8
 #Now that we know that we are running an updated system we can install all the dependent packages that are needed by Metasploit Framework:
 $INSTLL build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev zenmap nmap
 
@@ -135,7 +133,7 @@ ruby -v
 # sudo plugin so we can run Metasploit as root with "rbenv sudo msfconsole" 
 #git clone git://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sudo
 
-#exec $SHELL
+exec $SHELL
 
 #RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
 #rbenv install $RUBYVERSION
@@ -314,22 +312,22 @@ METASPLOIT
 #WIRESHARK
 #SQLMAP
 #CAIN
-NIKTO
-ETHERAPE
-ETTERCAP
-KISMET
-NETCAT
-NGREP
-NTOP
-AIRCRACK
-WORDLISTS
-REAVER
-PIXIEWPS
-WIFITE
+#NIKTO
+#ETHERAPE
+#ETTERCAP
+#KISMET
+#NETCAT
+#NGREP
+#NTOP
+#AIRCRACK
+#WORDLISTS
+#REAVER
+#PIXIEWPS
+#WIFITE
 #FERN
 #CRUNCH
 #WASH
-SETOOLKIT
+#SETOOLKIT
 
 #### Remove Bloatware
 
