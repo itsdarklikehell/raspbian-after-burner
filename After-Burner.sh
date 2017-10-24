@@ -302,7 +302,7 @@ curl -sSL http://install.pivpn.io | sudo bash
 
 OPENVPN(){
 cd
-#  clone git method 
+#  clone git method  (default)
 git clone https://github.com/Nyr/openvpn-install
 cd openvpn-install
 sudo bash openvpn-install.sh 
