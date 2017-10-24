@@ -314,8 +314,11 @@ sudo bash openvpn-install.sh
 #curl -sSL https://git.io/vpn | sudo bash
 }
 
+SSHFS(){
+sudo apt-get install sshfs
+}
 
-#UPGR8
+UPGR8
 #RASPICONFIG
 #ENSSH
 #LOCL
@@ -349,6 +352,7 @@ sudo bash openvpn-install.sh
 #SETOOLKIT
 #PIVPN
 OPENVPN
+SSHFS
 
 #### Remove Bloatware
 
