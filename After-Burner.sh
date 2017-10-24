@@ -3,7 +3,7 @@ CONFIG(){
 ### CONFIG GOES HERE ###
 INSTLL="sudo apt-get install -y "
 REMOVE="sudo apt-get purghe "
-VOICE="flite -t"
+VOICE="flite -t "
 echo "starting raspbian after burner script" | $VOICE
 } ### CONFIG ENDS HERE ###
 CONFIG ### config gets set
@@ -12,7 +12,9 @@ UPGR8(){
 #	update and upgrade system first, pretty obvious.
 echo "updating and upgrading system" 
 sudo apt-get update && sudo apt-get upgrade -y
+echo "updating done"
 }
+UPGR8
 
 ALLDONE(){
 echo "all done sir"
@@ -20,7 +22,7 @@ echo "all done sir"
 
 EXIT(){
 echo "stopping raspbian after burner script"
-exit 
+#exit 
 }
 
 RASPICONF(){
@@ -38,14 +40,14 @@ LOCL(){
 echo "updating locale"
 sudo update-locale
 }
-UPGR8
+
 #RASPICONFIG
 #ENSSH
 #LOCL
 #### basic setup complete #####
 
 INSTALL(){ ### INSTALLING TOOLS STARTS HERE
-UPGRADE
+UPGR8
 RETROPIE(){
 #	clone retropie setup git
 $INSTLL git lsb-release
@@ -184,7 +186,7 @@ echo "metasploit should now be installed. you should start the msfconsole to sta
 }
 
 BLATHER(){
-$INSTLL espeak
+$INSTLL espeak flite
 cd
 git clone https://github.com/itsdarklikehell/blather/
 cd blather
