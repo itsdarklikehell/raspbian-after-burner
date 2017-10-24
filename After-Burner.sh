@@ -296,6 +296,12 @@ cd set
 python setup.py install
 }
 
+PIVPN(){
+sudo -i
+curl -L http://install.pivpn.io | bash
+}
+
+
 UPGR8
 #RASPICONFIG
 #ENSSH
@@ -305,7 +311,7 @@ UPGR8
 #AWSMRETRPIBGM
 #CRE8AP
 #EMBY
-METASPLOIT
+#METASPLOIT
 #BLATHER
 #FLUXION
 #HYDRA
@@ -328,6 +334,7 @@ METASPLOIT
 #CRUNCH
 #WASH
 #SETOOLKIT
+PIVPN
 
 #### Remove Bloatware
 
