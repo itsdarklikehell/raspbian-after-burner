@@ -297,8 +297,8 @@ python setup.py install
 }
 
 PIVPN(){
-sudo -i
-curl -L http://install.pivpn.io | bash
+#sudo -i
+curl -L http://install.pivpn.io | sudo bash
 }
 
 
