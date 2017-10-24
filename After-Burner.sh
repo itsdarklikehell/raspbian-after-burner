@@ -5,8 +5,8 @@ INSTLL="sudo apt-get install -y "
 REMOVE="sudo apt-get purghe "
 VOICE="flite -t"
 echo "starting raspbian after burner script" | $VOICE
-}
-### CONFIG ENDS HERE ###
+} ### CONFIG ENDS HERE ###
+CONFIG ### config gets set
 
 UPGR8(){
 #	update and upgrade system first, pretty obvious.
@@ -38,9 +38,14 @@ LOCL(){
 echo "updating locale"
 sudo update-locale
 }
-
+UPGR8
+#RASPICONFIG
+#ENSSH
+#LOCL
 #### basic setup complete #####
+
 INSTALL(){ ### INSTALLING TOOLS STARTS HERE
+UPGRADE
 RETROPIE(){
 #	clone retropie setup git
 $INSTLL git lsb-release
@@ -88,9 +93,6 @@ sudo systemctl enable create_ap #	set to enable at boot
 }
 
 EMBY(){
-
-# Currently we support armv7/armhf, aarch64 for arm architectures. 
-
 #Recommend install method for armhf/armv7 (Tested rpi2/3 running rasbian): 
 #curl -sSL https://get.docker.com/ | sh docker run -it --rm \ --volume /usr/local/bin:/target \ emby/embyserver:armv7 instl 
 
@@ -331,13 +333,7 @@ sudo bash openvpn-install.sh
 
 SSHFS(){
 $INSTLL sshfs
-}
-} ### Instaling ends here
-UPGR8
-CONFIG
-#RASPICONFIG
-#ENSSH
-#LOCL
+
 #RETROPIE
 #RETROPIESETUP
 #AWSMRETRPIBGM
@@ -367,51 +363,57 @@ CONFIG
 #WASH
 #SETOOLKIT
 #PIVPN
-OPENVPN
-SSHFS
+#OPENVPN
+#SSHFS
+ALLDONE
+}
+} ### Instaling ends here
+REMBLOATWARE(){ ### Remove Bloatware starts here
+#$REMOVE wolfram-engine 
+#$REMOVE libreoffice* 
+#$REMOVE scratch 
+#$REMOVE nuscratch 
+#$REMOVE digital-scratch-handler 
+#$REMOVE penguinspuzzle 
+#$REMOVE pistore 
+#$REMOVE sonic-pi 
+#$REMOVE minecraft-pi 
+#$REMOVE python-minecraftpi 
+#$REMOVE debian-reference-*  
 
-#### Remove Bloatware
+REMJAVA(){
+$REMOVE oracle-java8-jdk oracle-java7-jdk openjdk*
+}
+#REMJAVA
 
-REMBLOATWARE(){
-#$REMOVE wolfram-engine libreoffice* scratch nuscratch digital-scratch-handler penguinspuzzle pistore sonic-pi minecraft-pi python-minecraftpi debian-reference-*  
+REMARTWORK(){
+$REMOVE raspberrypi-artwork
+}
+#REMARTWORK
+
+REMEPIPHANY(){
+$REMOVE epiphany-browser
+}
+#REMEPIPHANY
+
+REMNETSURF(){
+$REMOVE netsurf-gtk
+}
+#REMNETSURF
+
+# GUI-related packages 
+# $REMOVE lxde lxtask menu-xdg gksu xserver-xorg-video-fb turboxpdf gtk2-engines alsa-utils zenity desktop-base lxpolkit weston omxplayer  lightdm gnome-themes-standard-data gnome-icon-theme qt50-snapshot qt50-quick-particle-examples
+# Edu-related packages
+# $REMOVE idle python3-pygame python-pygame python-tk idle3 python3-tk python3-rpi.gpio python-serial python3-serial python-picamera python3-picamera python3-pygame python-pygame python-tk python3-tk dillo x2x  timidity smartsim  python3-numpy python3-piface common python3-piface digitalio python3-piface  python-piface common python-piface digitalio oracle-java8-jdk
 
 CLNUP(){
 sudo apt-get clean
 sudo apt-get autoremove
 }
-
-REMJAVA(){
-$REMOVE oracle-java8-jdk oracle-java7-jdk openjdk*
-}
-
-REMARTWORK(){
-$REMOVE raspberrypi-artwork
-}
-
-REMEPIPHANY(){
-$REMOVE epiphany-browser
-}
-
-REMNETSURF(){
-$REMOVE netsurf-gtk
-}
-
-
-# GUI-related packages
-# pkgs="lxde lxtask menu-xdg gksu xserver-xorg-video-fb turboxpdf gtk2-engines alsa-utils zenity desktop-base lxpolkit weston omxplayer  lightdm gnome-themes-standard-data gnome-icon-theme qt50-snapshot qt50-quick-particle-examples" 
-
-# Edu-related packages
-# pkgs="$pkgs idle python3-pygame python-pygame python-tk idle3 python3-tk python3-rpi.gpio python-serial python3-serial python-picamera python3-picamera python3-pygame python-pygame python-tk python3-tk dillo x2x  timidity smartsim  python3-numpy python3-piface common python3-piface digitalio python3-piface  python-piface common python-piface digitalio oracle-java8-jdk "
-
-
-
-#REMJAVA
-#REMARTWORK
-#REMEPIPHANY
-#REMNETSURF
-}
-#CLNUP
+CLNUP
 ALLDONE
+} ### remove bloatware ends here
+
 
 MAINMENU (){
 whiptail --title "Main Menu" --menu "Choose an option" 25  $LINES $COLUMNS $(( $LINES - 8 )) \
