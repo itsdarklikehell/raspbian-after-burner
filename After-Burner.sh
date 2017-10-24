@@ -308,10 +308,10 @@ cd
 #./openvpn-install.sh 
 
 #   wget method
-#wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
+wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
 
 #   curl method
-curl -sSL https://git.io/vpn | sudo bash
+#curl -sSL https://git.io/vpn | bash
 }
 
 
@@ -389,5 +389,5 @@ sudo apt-get purge netsurf-gtk
 #REMARTWORK
 #REMEPIPHANY
 #REMNETSURF
-CLNUP
+#CLNUP
 ALLDONE
