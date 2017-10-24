@@ -94,9 +94,9 @@ $INSTLL emby-server
 
 METASPLOIT(){
 # QUICK AND DIRTY (NIGHTLY)
-curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
-  chmod 755 msfinstall && \
-  ./msfinstall
+#curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
+#  chmod 755 msfinstall && \
+#  ./msfinstall
 
 # NORMAL MANUALINSTALLATION
 # We start by adding the Oracle Java Package source
@@ -297,8 +297,21 @@ python setup.py install
 }
 
 PIVPN(){
-#sudo -i
 curl -L http://install.pivpn.io | sudo bash
+}
+
+OPENVPN(){
+cd
+#  clone git method 
+#git clone https://github.com/Nyr/openvpn-install
+#cd openvpn-install
+#./openvpn-install.sh 
+
+#   wget method
+#wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
+
+#   curl method
+curl -L https://git.io/vpn | bash
 }
 
 
@@ -334,7 +347,8 @@ curl -L http://install.pivpn.io | sudo bash
 #CRUNCH
 #WASH
 #SETOOLKIT
-PIVPN
+#PIVPN
+OPENVPN
 
 #### Remove Bloatware
 
@@ -368,15 +382,6 @@ sudo apt-get purge netsurf-gtk
 
 # Edu-related packages
 # pkgs="$pkgs idle python3-pygame python-pygame python-tk idle3 python3-tk python3-rpi.gpio python-serial python3-serial python-picamera python3-picamera python3-pygame python-pygame python-tk python3-tk dillo x2x  timidity smartsim  python3-numpy python3-piface common python3-piface digitalio python3-piface  python-piface common python-piface digitalio oracle-java8-jdk "
-# Because of of https://github.com/RPi-Distro/raspberrypi-ui-mods/issues/2 (thanks @robertely)
-# echo apt-get -y remove raspberrypi-ui-mods 
-# Remove packages
-# for i in $pkgs; do	echo apt-get -y remove --purge $i
-#done 
-# Remove automatically installed dependency packages
-#echo apt-get -y autoremove 
-# Remove all packages marked rc (thanks @symm)
-#dpkg --list |grep "^rc" | cut -d " " -f 3 | xargs dpkg --purge 
 
 
 
