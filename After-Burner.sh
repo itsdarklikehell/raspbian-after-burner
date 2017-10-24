@@ -305,7 +305,7 @@ cd
 #  clone git method 
 git clone https://github.com/Nyr/openvpn-install
 cd openvpn-install
-sudo ./openvpn-install.sh 
+sudo bash openvpn-install.sh 
 
 #   wget method
 #wget https://git.io/vpn -O openvpn-install.sh && sudo bash openvpn-install.sh
