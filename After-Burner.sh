@@ -297,7 +297,7 @@ python setup.py install
 }
 
 PIVPN(){
-curl -L http://install.pivpn.io | sudo bash
+curl -sSL http://install.pivpn.io | sudo bash
 }
 
 OPENVPN(){
@@ -311,7 +311,7 @@ cd
 #wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
 
 #   curl method
-curl -L https://git.io/vpn | bash
+curl -sSL https://git.io/vpn | sudo bash
 }
 
 
