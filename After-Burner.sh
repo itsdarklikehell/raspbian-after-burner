@@ -425,4 +425,4 @@ whiptail --title "Main Menu" --menu "Choose an option" 25  $LINES $COLUMNS $(( $
 "MANUALS" "Show manual or help for certain toolz." \
 "EXIT" "exit to cli."
 }
-MAINMENU
+#MAINMENU
