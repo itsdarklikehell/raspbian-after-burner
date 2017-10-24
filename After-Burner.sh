@@ -302,7 +302,7 @@ curl -L http://install.pivpn.io | sudo bash
 }
 
 
-UPGR8
+#UPGR8
 #RASPICONFIG
 #ENSSH
 #LOCL
