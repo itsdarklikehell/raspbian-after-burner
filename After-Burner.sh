@@ -303,12 +303,12 @@ curl -sSL http://install.pivpn.io | sudo bash
 OPENVPN(){
 cd
 #  clone git method 
-#git clone https://github.com/Nyr/openvpn-install
-#cd openvpn-install
-#./openvpn-install.sh 
+git clone https://github.com/Nyr/openvpn-install
+cd openvpn-install
+./openvpn-install.sh 
 
 #   wget method
-wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
+#wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
 
 #   curl method
 #curl -sSL https://git.io/vpn | bash
