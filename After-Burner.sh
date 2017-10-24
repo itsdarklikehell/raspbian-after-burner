@@ -1,32 +1,46 @@
 #!/bin/bash
+CONFIG(){
+### CONFIG GOES HERE ###
 INSTLL="sudo apt-get install -y "
-espeak "starting raspbian after burner script"
+REMOVE="sudo apt-get purghe "
+VOICE="flite -t"
+echo "starting raspbian after burner script" | $VOICE
+}
+### CONFIG ENDS HERE ###
 
 UPGR8(){
 #	update and upgrade system first, pretty obvious.
-echo "update and upgrade system"
-  sudo apt-get update
-  sudo apt-get upgrade -y
+echo "updating and upgrading system" 
+sudo apt-get update && sudo apt-get upgrade -y
 }
 
 ALLDONE(){
-espeak "all done sir"
+echo "all done sir"
+}
+
+EXIT(){
+echo "stopping raspbian after burner script"
+exit 
 }
 
 RASPICONF(){
-raspi-config
+echo "starting raspi config"
+sudo raspi-config
 }
 
 ENSSH(){
+echo "enableing ssh"
 sudo touch /boot/ssh
 }
 
 LOCL(){
 #	update localization
-echo "update locale"
+echo "updating locale"
 sudo update-locale
 }
 
+#### basic setup complete #####
+INSTALL(){ ### INSTALLING TOOLS STARTS HERE
 RETROPIE(){
 #	clone retropie setup git
 $INSTLL git lsb-release
@@ -164,6 +178,7 @@ echo " pool: 75" >> /opt/metasploit-framework/config/database.yml
 echo " timeout: 5" >> /opt/metasploit-framework/config/database.yml
 sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
 source /etc/profile
+echo "metasploit should now be installed. you should start the msfconsole to start creating the tables and filling the database."
 }
 
 BLATHER(){
@@ -315,10 +330,11 @@ sudo bash openvpn-install.sh
 }
 
 SSHFS(){
-sudo apt-get install sshfs
+$INSTLL sshfs
 }
-
+} ### Instaling ends here
 UPGR8
+CONFIG
 #RASPICONFIG
 #ENSSH
 #LOCL
@@ -356,8 +372,8 @@ SSHFS
 
 #### Remove Bloatware
 
-
-#sudo apt-get purge wolfram-engine libreoffice* scratch nuscratch digital-scratch-handler penguinspuzzle pistore sonic-pi minecraft-pi python-minecraftpi debian-reference-*  
+REMBLOATWARE(){
+#$REMOVE wolfram-engine libreoffice* scratch nuscratch digital-scratch-handler penguinspuzzle pistore sonic-pi minecraft-pi python-minecraftpi debian-reference-*  
 
 CLNUP(){
 sudo apt-get clean
@@ -365,19 +381,19 @@ sudo apt-get autoremove
 }
 
 REMJAVA(){
-sudo apt-get purge oracle-java8-jdk oracle-java7-jdk openjdk*
+$REMOVE oracle-java8-jdk oracle-java7-jdk openjdk*
 }
 
 REMARTWORK(){
-sudo apt-get purge raspberrypi-artwork
+$REMOVE raspberrypi-artwork
 }
 
 REMEPIPHANY(){
-sudo apt-get purge epiphany-browser
+$REMOVE epiphany-browser
 }
 
 REMNETSURF(){
-sudo apt-get purge netsurf-gtk
+$REMOVE netsurf-gtk
 }
 
 
@@ -393,5 +409,16 @@ sudo apt-get purge netsurf-gtk
 #REMARTWORK
 #REMEPIPHANY
 #REMNETSURF
+}
 #CLNUP
 ALLDONE
+
+MAINMENU (){
+whiptail --title "Main Menu" --menu "Choose an option" 25  $LINES $COLUMNS $(( $LINES - 8 )) \
+"REMBLOATWARE" "remove certain bloatware." \
+"INSTALLTOOLS" "Install certain Toolz." \
+"REMOVETOOLS" "Remove certain toolz" \
+"MANUALS" "Show manual or help for certain toolz." \
+"EXIT" "exit to cli."
+}
+MAINMENU
