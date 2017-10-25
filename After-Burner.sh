@@ -53,11 +53,11 @@ sudo update-locale
 #LOCL
 #### basic setup complete #####
 
-INSTALL(){ ### INSTALLING TOOLS STARTS HERE
+INSTALLTOOLS(){ ### INSTALLING TOOLS STARTS HERE
 echo "installing tools" | $VOICE
 UPGR8
 RETROPIE(){
-#	clone retropie setup git
+#	 retropie setup git
 $INSTLL git lsb-release
 cd
 git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
@@ -344,6 +344,7 @@ sudo bash openvpn-install.sh
 
 SSHFS(){
 $INSTLL sshfs
+}
 
 #RETROPIE
 #RETROPIESETUP
@@ -377,7 +378,6 @@ METASPLOIT
 #OPENVPN
 #SSHFS
 ALLDONE
-}
 } ### Instaling ends here
 REMBLOATWARE(){ ### Remove Bloatware starts here
 $REMOVE wolfram-engine 
