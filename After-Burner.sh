@@ -24,7 +24,7 @@ echo "updating done" | $VOICE
 UPGR8
 
 ALLDONE(){
-echo "all done sir"
+echo "all done sir" | $VOICE
 }
 
 EXIT(){
@@ -54,6 +54,7 @@ sudo update-locale
 #### basic setup complete #####
 
 INSTALL(){ ### INSTALLING TOOLS STARTS HERE
+echo "installing tools" | $VOICE
 UPGR8
 RETROPIE(){
 #	clone retropie setup git
@@ -118,6 +119,7 @@ $INSTLL emby-server
 }
 
 METASPLOIT(){
+echo "installing metasploit" | $VOICE
 # QUICK AND DIRTY (NIGHTLY)
 #curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
 #  chmod 755 msfinstall && \
@@ -189,7 +191,7 @@ echo " pool: 75" >> /opt/metasploit-framework/config/database.yml
 echo " timeout: 5" >> /opt/metasploit-framework/config/database.yml
 sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
 source /etc/profile
-echo "metasploit should now be installed. you should start the msfconsole to start creating the tables and filling the database."
+echo "metasploit should now be installed. you should start the msfconsole to start creating the tables and filling the database." | $VOICE
 }
 
 BLATHER(){
@@ -379,13 +381,13 @@ ALLDONE
 } ### Instaling ends here
 REMBLOATWARE(){ ### Remove Bloatware starts here
 $REMOVE wolfram-engine 
-#$REMOVE libreoffice* 
-#$REMOVE scratch 
-#$REMOVE nuscratch 
-#$REMOVE digital-scratch-handler 
-#$REMOVE penguinspuzzle 
+$REMOVE libreoffice* 
+$REMOVE scratch 
+$REMOVE nuscratch 
+$REMOVE digital-scratch-handler 
+$REMOVE penguinspuzzle 
 #$REMOVE pistore 
-#$REMOVE sonic-pi 
+$REMOVE sonic-pi 
 #$REMOVE minecraft-pi 
 #$REMOVE python-minecraftpi 
 #$REMOVE debian-reference-*  
@@ -416,8 +418,7 @@ $REMOVE netsurf-gtk
 # $REMOVE idle python3-pygame python-pygame python-tk idle3 python3-tk python3-rpi.gpio python-serial python3-serial python-picamera python3-picamera python3-pygame python-pygame python-tk python3-tk dillo x2x  timidity smartsim  python3-numpy python3-piface common python3-piface digitalio python3-piface  python-piface common python-piface digitalio oracle-java8-jdk
 
 CLNUP(){
-sudo apt-get clean
-sudo apt-get autoremove
+sudo apt-get clean && sudo apt-get autoremove
 }
 CLNUP
 ALLDONE
