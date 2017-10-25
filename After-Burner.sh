@@ -3,9 +3,9 @@ CONFIG(){
 ### CONFIG GOES HERE ###
 INSTLL="sudo apt-get install -y "
 REMOVE="sudo apt-get purge "
-# choose whether to use echo output or evil hacker speech output thingy like flite or espeak. default: OUTPUT="echo"
-OUTPUT="echo"
-#OUTPUT="flite"
+# choose whether to use echo output or evil hacker speech output thingy like flite or espeak. default: OUTPUT="flite"
+#OUTPUT="echo"
+OUTPUT="flite"
 
 #if (whiptail --title "Voice or nah?" --yesno "Do you want to use voice output or echo" 8 78)
 #then OUTPUT="flite" && echo "User selected Yes, exit status was $?." 
