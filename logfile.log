@@ -1,0 +1,74 @@
+Geraakt http://archive.raspberrypi.org jessie InRelease
+Geraakt http://mirrordirector.raspbian.org jessie InRelease
+Genegeerd http://download.opensuse.org  InRelease
+Geraakt http://downloads.metasploit.com lucid InRelease
+Geraakt http://pipplware.pplware.pt ./ InRelease
+Geraakt http://download.opensuse.org  Release.gpg
+Geraakt http://download.opensuse.org  Release
+Geraakt https://deb.nodesource.com jessie InRelease
+Ophalen:1 http://downloads.metasploit.com lucid/main armhf Packages [417 B]
+Geraakt http://archive.raspberrypi.org jessie/main armhf Packages
+Geraakt http://archive.raspberrypi.org jessie/ui armhf Packages
+Geraakt http://download.opensuse.org  Packages
+Ophalen:2 https://deb.nodesource.com jessie/main Sources [762 B]
+Ophalen:3 https://deb.nodesource.com jessie/main armhf Packages [1004 B]
+Ophalen:4 https://deb.nodesource.com jessie/main Translation-nl_NL [162 B]
+Ophalen:5 https://deb.nodesource.com jessie/main Translation-nl [162 B]
+Ophalen:6 https://deb.nodesource.com jessie/main Translation-en [162 B]
+Ophalen:7 https://deb.nodesource.com jessie/main Translation-nl_NL [162 B]
+Ophalen:8 https://deb.nodesource.com jessie/main Translation-nl [162 B]
+Ophalen:9 https://deb.nodesource.com jessie/main Translation-en [162 B]
+Genegeerd http://download.opensuse.org  Translation-nl_NL
+Ophalen:10 https://deb.nodesource.com jessie/main Translation-nl_NL [162 B]
+Genegeerd http://download.opensuse.org  Translation-nl
+Ophalen:11 https://deb.nodesource.com jessie/main Translation-nl [162 B]
+Genegeerd http://download.opensuse.org  Translation-en
+Ophalen:12 http://mirrordirector.raspbian.org jessie/main armhf Packages [9536 kB]
+Ophalen:13 https://deb.nodesource.com jessie/main Translation-en [162 B]
+Ophalen:14 https://deb.nodesource.com jessie/main Translation-nl_NL [162 B]
+Ophalen:15 https://deb.nodesource.com jessie/main Translation-nl [162 B]
+Ophalen:16 https://deb.nodesource.com jessie/main Translation-en [162 B]
+Ophalen:17 https://deb.nodesource.com jessie/main Translation-nl_NL [162 B]
+Genegeerd https://deb.nodesource.com jessie/main Translation-nl_NL
+Ophalen:18 https://deb.nodesource.com jessie/main Translation-nl [162 B]
+Genegeerd https://deb.nodesource.com jessie/main Translation-nl
+Ophalen:19 https://deb.nodesource.com jessie/main Translation-en [162 B]
+Genegeerd https://deb.nodesource.com jessie/main Translation-en
+Genegeerd http://archive.raspberrypi.org jessie/main Translation-nl_NL
+Genegeerd http://archive.raspberrypi.org jessie/main Translation-nl
+Genegeerd http://archive.raspberrypi.org jessie/main Translation-en
+Genegeerd http://archive.raspberrypi.org jessie/ui Translation-nl_NL
+Ophalen:20 http://pipplware.pplware.pt ./ Packages [513 kB]
+Genegeerd http://archive.raspberrypi.org jessie/ui Translation-nl
+Genegeerd http://archive.raspberrypi.org jessie/ui Translation-en
+Ophalen:21 http://mirrordirector.raspbian.org jessie/contrib armhf Packages [43,3 kB]
+Ophalen:22 http://mirrordirector.raspbian.org jessie/non-free armhf Packages [84,2 kB]
+Ophalen:23 http://mirrordirector.raspbian.org jessie/rpi armhf Packages [1356 B]
+Genegeerd http://downloads.metasploit.com lucid/main Translation-nl_NL
+Genegeerd http://downloads.metasploit.com lucid/main Translation-nl
+Genegeerd http://pipplware.pplware.pt ./ Translation-nl_NL
+Genegeerd http://downloads.metasploit.com lucid/main Translation-en
+Genegeerd http://pipplware.pplware.pt ./ Translation-nl
+Genegeerd http://mirrordirector.raspbian.org jessie/contrib Translation-nl_NL
+Genegeerd http://mirrordirector.raspbian.org jessie/contrib Translation-nl
+Genegeerd http://mirrordirector.raspbian.org jessie/contrib Translation-en
+Genegeerd http://pipplware.pplware.pt ./ Translation-en
+Genegeerd http://mirrordirector.raspbian.org jessie/main Translation-nl_NL
+Genegeerd http://mirrordirector.raspbian.org jessie/main Translation-nl
+Genegeerd http://mirrordirector.raspbian.org jessie/main Translation-en
+Genegeerd http://mirrordirector.raspbian.org jessie/non-free Translation-nl_NL
+Genegeerd http://mirrordirector.raspbian.org jessie/non-free Translation-nl
+Genegeerd http://mirrordirector.raspbian.org jessie/non-free Translation-en
+Genegeerd http://mirrordirector.raspbian.org jessie/rpi Translation-nl_NL
+Genegeerd http://mirrordirector.raspbian.org jessie/rpi Translation-nl
+Genegeerd http://mirrordirector.raspbian.org jessie/rpi Translation-en
+4757 kB opgehaald in 30s (157 kB/s)
+Pakketlijsten worden ingelezen...
+Pakketlijsten worden ingelezen...
+Boom van vereisten wordt opgebouwd...
+De statusinformatie wordt gelezen...
+0 opgewaardeerd, 0 nieuw geïnstalleerd, 0 te verwijderen en 0 niet opgewaardeerd.
+Pakketlijsten worden ingelezen...
+Boom van vereisten wordt opgebouwd...
+De statusinformatie wordt gelezen...
+0 opgewaardeerd, 0 nieuw geïnstalleerd, 0 te verwijderen en 0 niet opgewaardeerd.
