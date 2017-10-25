@@ -20,8 +20,8 @@ echo "updating done" | $VOICE
 }
 UPGR8
 
-ALLDONE(){
-echo "all done sir" | $VOICE
+OKDONE(){
+echo "OK done sir" | $VOICE
 }
 
 EXIT(){
@@ -176,16 +176,19 @@ rvm --default use ruby-${RUBYVERSION}@metasploit-framework
 gem install bundler
 bundle install
 sudo bash -c 'for MSF in $(ls msf*); do ln -s /opt/metasploit-framework/$MSF /usr/local/bin/$MSF;done'
-touch /opt/metasploit-framework/config/database.yml
-echo "production:" > /opt/metasploit-framework/config/database.yml
-echo " adapter: postgresql" >> /opt/metasploit-framework/config/database.yml
-echo " database: msf" >> /opt/metasploit-framework/config/database.yml
-echo " username: msf" >> /opt/metasploit-framework/config/database.yml
-echo " password: " >> /opt/metasploit-framework/config/database.yml
-echo " host: 127.0.0.1" >> /opt/metasploit-framework/config/database.yml
-echo " port: 5432" >> /opt/metasploit-framework/config/database.yml
-echo " pool: 75" >> /opt/metasploit-framework/config/database.yml
-echo " timeout: 5" >> /opt/metasploit-framework/config/database.yml
+touch /tmp/database.yml
+echo "production:" > /tmp/database.yml
+echo " adapter: postgresql" >> /tmp/database.yml
+echo " database: " >> /tmp/database.yml
+echo " username: " >> /tmp/database.yml
+echo " password: " >> /tmp/database.yml
+echo " host: 127.0.0.1" >> /tmp/database.yml
+echo " port: 5432" >> /tmp/database.yml
+echo " pool: 75" >> /tmp/database.yml
+echo " timeout: 5" >> /tmp/database.yml
+echo "now edit the database settings and save please" | $VOICE 
+nano /tmp/database.yml
+cp /tmp/database.yml /opt/metasploit-framework/config/database.yml
 sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
 source /etc/profile
 echo "metasploit should now be installed. you should start the msfconsole to start creating the tables and filling the database." | $VOICE
@@ -343,12 +346,16 @@ SSHFS(){
 $INSTLL sshfs
 }
 
+NMAP(){
+$INSTLL nmap
+}
+
 #RETROPIE
 #RETROPIESETUP
 #AWSMRETRPIBGM
 #CRE8AP
 #EMBY
-METASPLOIT
+#METASPLOIT
 #BLATHER
 #FLUXION
 #HYDRA
@@ -362,8 +369,8 @@ METASPLOIT
 #NETCAT
 #NGREP
 #NTOP
-#AIRCRACK
-#WORDLISTS
+AIRCRACK
+WORDLISTS
 #REAVER
 #PIXIEWPS
 #WIFITE
@@ -374,7 +381,8 @@ METASPLOIT
 #PIVPN
 #OPENVPN
 #SSHFS
-ALLDONE
+NMAP
+OKDONE
 } ### Instaling ends here
 REMBLOATWARE(){ ### Remove Bloatware starts here
 $REMOVE wolfram-engine 
@@ -418,7 +426,7 @@ CLNUP(){
 sudo apt-get clean && sudo apt-get autoremove
 }
 CLNUP
-ALLDONE
+OKDONE
 } ### remove bloatware ends here
 
 
