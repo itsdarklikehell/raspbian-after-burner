@@ -239,7 +239,7 @@ make -j$(nproc)
 
 SQLMAP(){
 cd
-git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap
+sudo git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap
 cd /opt/sqlmap
 sudo ln -s /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
 }
