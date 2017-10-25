@@ -238,27 +238,37 @@ make -j$(nproc)
 }
 
 SQLMAP(){
+echo "installing sqlmap" | $OUTPUT
 cd
 sudo git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap
 cd /opt/sqlmap
 sudo ln -s /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
+echo "sqlmap installed" | $OUTPUT
 }
 
 WIRESHARK(){
+echo "installing wireshark" | $OUTPUT
 $INSTLL wireshark tshark
 sudo gpasswd -a $USER wireshark
+echo "wireshark install" | $OUTPUT
 }
 
 CAIN(){
+echo "installing cain" | $OUTPUT
 $INSTLL cain cain-solvers cain-examples
+echo "cain and able installed" | $OUTPUT
 }
 
 NIKTO(){
+echo "installng nikto" | $OUTPUT
 $INSTLL nikto
+echo "nikto installed" | $OUTPUT
 }
 
 ETHERAPE(){
+echo "installing etherape" | $OUTPUT
 $INSTLL etherape
+echo "etherape installed" | $OUTPUT
 }
 
 ETTERCAP(){
