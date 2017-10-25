@@ -272,7 +272,8 @@ echo "etherape installed" | $OUTPUT
 }
 
 ETTERCAP(){
-$INSTLL ettercap-text-only ettercap-graphical
+$INSTLL ettercap-text-only 
+#$INSTLL ettercap-graphical
 }
 
 KISMET(){
