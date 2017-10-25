@@ -16,7 +16,7 @@ OUTPUT="flite"
 #then OUTPUT="flite" && echo "User selected Yes, exit status was $?." 
 #else OUTPUT="echo" && echo "User selected No, exit status was $?." fi
  
-CLNUP" echo "cleaning apt" | $OUTPUT && sudo apt-get clean && sudo apt-get autoremove && echo "apt is now cleaned" | $OUTPUT"
+CLNUP=" echo "cleaning apt" | $OUTPUT && sudo apt-get clean && sudo apt-get autoremove && echo "apt is now cleaned" | $OUTPUT"
 
 
 #CLNUP="sudo apt-get autoclean && sudo apt-get autoremove"
