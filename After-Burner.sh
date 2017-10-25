@@ -5,9 +5,8 @@ INSTLL="sudo apt-get install -y "
 REMOVE="sudo apt-get purghe "
 VOICE="flite"
 echo "starting raspbian after burner script" | $VOICE
-} ### CONFIG ENDS HERE ###
-
 whiptail --title "Raspbian After Burner" --infobox "This is the Raspbian After Burner, WARING USE WITH CARE!" 8 78
+} ### CONFIG ENDS HERE ###
 
 CONFIG ### config gets set
 
