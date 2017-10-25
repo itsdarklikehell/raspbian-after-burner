@@ -3,7 +3,7 @@ CONFIG(){
 ### CONFIG GOES HERE ###
 INSTLL="sudo apt-get install -y "
 REMOVE="sudo apt-get purghe "
-VOICE="flite -t "
+VOICE="flite"
 echo "starting raspbian after burner script" | $VOICE
 } ### CONFIG ENDS HERE ###
 CONFIG ### config gets set
@@ -420,4 +420,4 @@ ALLDONE
 MAINMENU (){
 whiptail --title "Main Menu" --menu "Choose an option" 25  $LINES $COLUMNS $(( $LINES - 8 )) \ "REMBLOATWARE" "remove certain bloatware." \ "INSTALLTOOLS" "Install certain Toolz." \ "REMOVETOOLS" "Remove certain toolz" \ "MANUALS" "Show manual or help for certain toolz." \ "EXIT" "exit to cli."
 }
-MAINMENU
+#MAINMENU
