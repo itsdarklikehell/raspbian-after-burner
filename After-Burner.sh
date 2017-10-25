@@ -4,7 +4,9 @@ CONFIG(){
 INSTLL="sudo apt-get install -y "
 REMOVE="sudo apt-get purge "
 
-if (whiptail --title "Voice or nah?" --yesno "Do you want to use voice output or echo" 8 78) then OUTPUT="flite" && echo "User selected Yes, exit status was $?." else OUTPUT="echo" && echo "User selected No, exit status was $?." fi
+if (whiptail --title "Voice or nah?" --yesno "Do you want to use voice output or echo" 8 78)
+then OUTPUT="flite" && echo "User selected Yes, exit status was $?." 
+else OUTPUT="echo" && echo "User selected No, exit status was $?." fi
 #Try using dialog to replace whiptail if you don't have whiptail: 
 
 
