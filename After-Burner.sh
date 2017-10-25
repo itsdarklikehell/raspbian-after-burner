@@ -2,7 +2,7 @@
 CONFIG(){
 ### CONFIG GOES HERE ###
 INSTLL="sudo apt-get install -y "
-REMOVE="sudo apt-get purghe "
+REMOVE="sudo apt-get purge "
 VOICE="flite"
 #Try using dialog to replace whiptail if you don't have whiptail: 
 alias whiptail='dialog'
