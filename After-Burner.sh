@@ -5,10 +5,7 @@ INSTLL="sudo apt-get install -y "
 REMOVE="sudo apt-get purge "
 VOICE="flite"
 #Try using dialog to replace whiptail if you don't have whiptail: 
-alias whiptail='dialog'
-eval `resize`
-echo "starting raspbian after burner script" | $VOICE
-whiptail --title "Raspbian After Burner" --infobox "This is the Raspbian After Burner, WARING USE WITH CARE!" 8 78
+
 
 #CLNUP="sudo apt-get autoclean && sudo apt-get autoremove"
 } ### CONFIG ENDS HERE ###
