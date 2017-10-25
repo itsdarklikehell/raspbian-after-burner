@@ -5,7 +5,10 @@ INSTLL="sudo apt-get install -y "
 REMOVE="sudo apt-get purge "
 VOICE="flite"
 #Try using dialog to replace whiptail if you don't have whiptail: 
-
+CLNUP(){
+echo "cleaning apt" | $VOICE
+sudo apt-get clean && sudo apt-get autoremove
+echo "apt is now cleaned" | $VOICE
 
 #CLNUP="sudo apt-get autoclean && sudo apt-get autoremove"
 } ### CONFIG ENDS HERE ###
@@ -52,7 +55,7 @@ sudo update-locale
 
 INSTALLTOOLS(){ ### INSTALLING TOOLS STARTS HERE
 echo "installing tools" | $VOICE
-UPGR8
+
 RETROPIE(){
 #	 retropie setup git
 $INSTLL git lsb-release
@@ -423,11 +426,6 @@ $REMOVE netsurf-gtk
 # $REMOVE lxde lxtask menu-xdg gksu xserver-xorg-video-fb turboxpdf gtk2-engines alsa-utils zenity desktop-base lxpolkit weston omxplayer  lightdm gnome-themes-standard-data gnome-icon-theme qt50-snapshot qt50-quick-particle-examples
 # Edu-related packages
 # $REMOVE idle python3-pygame python-pygame python-tk idle3 python3-tk python3-rpi.gpio python-serial python3-serial python-picamera python3-picamera python3-pygame python-pygame python-tk python3-tk dillo x2x  timidity smartsim  python3-numpy python3-piface common python3-piface digitalio python3-piface  python-piface common python-piface digitalio oracle-java8-jdk
-
-CLNUP(){
-echo "cleaning apt" | $VOICE
-sudo apt-get clean && sudo apt-get autoremove
-echo "apt is now cleaned" | $VOICE
 }
 CLNUP
 echo "all bloatware is now removed" | $VOICE
