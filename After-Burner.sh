@@ -1,4 +1,9 @@
 #!/bin/bash
+
+## ***** todo *****
+#mpd
+#mpg123
+
 CONFIG(){
 ### CONFIG GOES HERE ###
 INSTLL="sudo apt-get install -y "
