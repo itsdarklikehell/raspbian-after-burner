@@ -272,7 +272,7 @@ echo "etherape installed" | $OUTPUT
 }
 
 ETTERCAP(){
-$INSTLL ettercap-text ettercap-graphical
+$INSTLL ettercap-text-only ettercap-graphical
 }
 
 KISMET(){
@@ -382,9 +382,10 @@ $INSTLL nmap
 #HYDRA
 #WIRESHARK
 #SQLMAP
-CAIN
-NIKTO
-ETHERAPE
+#CAIN
+#NIKTO
+#ETHERAPE
+
 ETTERCAP
 #KISMET
 #NETCAT
