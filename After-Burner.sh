@@ -346,7 +346,7 @@ $INSTLL sshfs
 #AWSMRETRPIBGM
 #CRE8AP
 #EMBY
-#METASPLOIT
+METASPLOIT
 #BLATHER
 #FLUXION
 #HYDRA
@@ -376,7 +376,7 @@ ALLDONE
 }
 } ### Instaling ends here
 REMBLOATWARE(){ ### Remove Bloatware starts here
-#$REMOVE wolfram-engine 
+$REMOVE wolfram-engine 
 #$REMOVE libreoffice* 
 #$REMOVE scratch 
 #$REMOVE nuscratch 
