@@ -241,7 +241,7 @@ SQLMAP(){
 cd
 git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap
 cd /opt/sqlmap
-ln -s /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
+sudo ln -s /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
 }
 
 WIRESHARK(){
