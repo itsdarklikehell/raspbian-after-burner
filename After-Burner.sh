@@ -6,6 +6,9 @@ REMOVE="sudo apt-get purghe "
 VOICE="flite"
 echo "starting raspbian after burner script" | $VOICE
 } ### CONFIG ENDS HERE ###
+
+whiptail --title "Raspbian After Burner" --infobox "This is the Raspbian After Burner, WARING USE WITH CARE!" 8 78
+
 CONFIG ### config gets set
 
 UPGR8(){
@@ -426,3 +429,4 @@ eval `resize`
 whiptail --title "Main Menu" --menu "Choose an option" 25 78 16 \ "REMBLOATWARE" "remove certain bloatware." \ "INSTALLTOOLS" "Install certain Toolz." \ "REMOVETOOLS" "Remove certain toolz" \ "MANUALS" "Show manual or help for certain toolz." \ "EXIT" "exit to cli."
 }
 MAINMENU
+CLNUP
