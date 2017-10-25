@@ -451,5 +451,5 @@ whiptail --title "Main Menu" --menu "Choose an option" 25 78 16 \ "REMBLOATWARE"
 }
 #MAINMENU
 #REMBLOATWARE
-#INSTALLTOOLS
-CLNUP
+INSTALLTOOLS
+#CLNUP
