@@ -10,9 +10,9 @@ CONFIG ### config gets set
 
 UPGR8(){
 #	update and upgrade system first, pretty obvious.
-echo "updating and upgrading system" 
+echo "updating and upgrading system" | $VOICE 
 sudo apt-get update && sudo apt-get upgrade -y
-echo "updating done"
+echo "updating done" | $VOICE
 }
 UPGR8
 
@@ -21,23 +21,23 @@ echo "all done sir"
 }
 
 EXIT(){
-echo "stopping raspbian after burner script"
+echo "stopping raspbian after burner script" | $VOICE
 #exit 
 }
 
 RASPICONF(){
-echo "starting raspi config"
+echo "starting raspi config" | $VOICE
 sudo raspi-config
 }
 
 ENSSH(){
-echo "enableing ssh"
+echo "enableing ssh" | $VOICE
 sudo touch /boot/ssh
 }
 
 LOCL(){
 #	update localization
-echo "updating locale"
+echo "updating locale" | $VOICE
 sudo update-locale
 }
 
