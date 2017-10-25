@@ -383,8 +383,10 @@ WORDLISTS
 #SSHFS
 NMAP
 OKDONE
+echo "all tools are now installed" | $VOICE
 } ### Instaling ends here
 REMBLOATWARE(){ ### Remove Bloatware starts here
+echo "removing bloatware" | $VOICE
 $REMOVE wolfram-engine 
 $REMOVE libreoffice* 
 $REMOVE scratch 
@@ -423,10 +425,12 @@ $REMOVE netsurf-gtk
 # $REMOVE idle python3-pygame python-pygame python-tk idle3 python3-tk python3-rpi.gpio python-serial python3-serial python-picamera python3-picamera python3-pygame python-pygame python-tk python3-tk dillo x2x  timidity smartsim  python3-numpy python3-piface common python3-piface digitalio python3-piface  python-piface common python-piface digitalio oracle-java8-jdk
 
 CLNUP(){
+echo "cleaning apt" | $VOICE
 sudo apt-get clean && sudo apt-get autoremove
+echo "apt is now cleaned" | $VOICE
 }
 CLNUP
-OKDONE
+echo "all bloatware is now removed" | $VOICE
 } ### remove bloatware ends here
 
 
