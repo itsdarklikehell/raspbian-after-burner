@@ -263,7 +263,7 @@ $INSTLL etherape
 }
 
 ETTERCAP(){
-$INSTLL ettercap
+$INSTLL ettercap-text ettercap-graphical
 }
 
 KISMET(){
