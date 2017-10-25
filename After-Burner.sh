@@ -10,7 +10,7 @@ eval `resize`
 echo "starting raspbian after burner script" | $VOICE
 whiptail --title "Raspbian After Burner" --infobox "This is the Raspbian After Burner, WARING USE WITH CARE!" 8 78
 
-CLNUP="sudo apt-get autoclean && sudo apt-get autoremove"
+#CLNUP="sudo apt-get autoclean && sudo apt-get autoremove"
 } ### CONFIG ENDS HERE ###
 
 CONFIG ### config gets set
@@ -428,4 +428,7 @@ MAINMENU (){
 echo "Main menu" | $VOICE
 whiptail --title "Main Menu" --menu "Choose an option" 25 78 16 \ "REMBLOATWARE" "remove certain bloatware." \ "INSTALLTOOLS" "Install certain Toolz." \ "REMOVETOOLS" "Remove certain toolz" \ "MANUALS" "Show manual or help for certain toolz." \ "EXIT" "exit to cli."
 }
-MAINMENU
+#MAINMENU
+REMBLOATWARE
+INSTALLTOOLS
+CLNUP
