@@ -15,9 +15,9 @@ OUTPUT="flite"
 #if (whiptail --title "Voice or nah?" --yesno "Do you want to use voice output or echo" 8 78)
 #then OUTPUT="flite" && echo "User selected Yes, exit status was $?." 
 #else OUTPUT="echo" && echo "User selected No, exit status was $?." fi
-#Try using dialog to replace whiptail if you don't have whiptail: 
+ 
 
-
+#CLNUP" echo "cleaning apt" | $OUTPUT && sudo apt-get clean && sudo apt-get autoremove && echo "apt is now cleaned" | $OUTPUT"
 
 #CLNUP="sudo apt-get autoclean && sudo apt-get autoremove"
 } ### CONFIG ENDS HERE ###
