@@ -3,7 +3,8 @@ CONFIG(){
 ### CONFIG GOES HERE ###
 INSTLL="sudo apt-get install -y "
 REMOVE="sudo apt-get purge "
-VOICE="flite"
+
+if (whiptail --title "Voice or nah?" --yesno "Do you want to use voice output or echo" 8 78) then OUTPUT="flite" && echo "User selected Yes, exit status was $?." else OUTPUT="echo" && echo "User selected No, exit status was $?." fi
 #Try using dialog to replace whiptail if you don't have whiptail: 
 
 
@@ -14,34 +15,34 @@ CONFIG ### config gets set
 
 UPGR8(){
 #	update and upgrade system first, pretty obvious.
-echo "updating and upgrading system" | $VOICE 
+echo "updating and upgrading system" | $OUTPUT 
 sudo apt-get update && sudo apt-get upgrade -y
-echo "updating done" | $VOICE
+echo "updating done" | $OUTPUT
 }
 UPGR8
 
 OKDONE(){
-echo "OK done sir" | $VOICE
+echo "OK done sir" | $OUTPUT
 }
 
 EXIT(){
-echo "stopping raspbian after burner script" | $VOICE
+echo "stopping raspbian after burner script" | $OUTPUT
 #exit 
 }
 
 RASPICONF(){
-echo "starting raspi config" | $VOICE
+echo "starting raspi config" | $OUTPUT
 sudo raspi-config
 }
 
 ENSSH(){
-echo "enableing ssh" | $VOICE
+echo "enableing ssh" | $OUTPUT
 sudo touch /boot/ssh
 }
 
 LOCL(){
 #	update localization
-echo "updating locale" | $VOICE
+echo "updating locale" | $OUTPUT
 sudo update-locale
 }
 
@@ -51,7 +52,7 @@ sudo update-locale
 #### basic setup complete #####
 
 INSTALLTOOLS(){ ### INSTALLING TOOLS STARTS HERE
-echo "installing tools" | $VOICE
+echo "installing tools" | $OUTPUT
 
 RETROPIE(){
 #	 retropie setup git
@@ -116,7 +117,7 @@ $INSTLL emby-server
 }
 
 METASPLOIT(){
-echo "installing metasploit" | $VOICE
+echo "installing metasploit" | $OUTPUT
 # QUICK AND DIRTY (NIGHTLY)
 #curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
 #  chmod 755 msfinstall && \
@@ -186,12 +187,12 @@ echo " host: 127.0.0.1" >> /tmp/database.yml
 echo " port: 5432" >> /tmp/database.yml
 echo " pool: 75" >> /tmp/database.yml
 echo " timeout: 5" >> /tmp/database.yml
-echo "now edit the database settings and save please" | $VOICE 
+echo "now edit the database settings and save please" | $OUTPUT 
 nano /tmp/database.yml
 cp /tmp/database.yml /opt/metasploit-framework/config/database.yml
 sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
 source /etc/profile
-echo "metasploit should now be installed. you should start the msfconsole to start creating the tables and filling the database." | $VOICE
+echo "metasploit should now be installed. you should start the msfconsole to start creating the tables and filling the database." | $OUTPUT
 }
 
 BLATHER(){
@@ -383,10 +384,10 @@ WORDLISTS
 #SSHFS
 NMAP
 OKDONE
-echo "all tools are now installed" | $VOICE
+echo "all tools are now installed" | $OUTPUT
 } ### Instaling ends here
 REMBLOATWARE(){ ### Remove Bloatware starts here
-echo "removing bloatware" | $VOICE
+echo "removing bloatware" | $OUTPUT
 $REMOVE wolfram-engine 
 $REMOVE libreoffice* 
 $REMOVE scratch 
@@ -425,17 +426,17 @@ $REMOVE netsurf-gtk
 # $REMOVE idle python3-pygame python-pygame python-tk idle3 python3-tk python3-rpi.gpio python-serial python3-serial python-picamera python3-picamera python3-pygame python-pygame python-tk python3-tk dillo x2x  timidity smartsim  python3-numpy python3-piface common python3-piface digitalio python3-piface  python-piface common python-piface digitalio oracle-java8-jdk
 
 CLNUP(){
-echo "cleaning apt" | $VOICE
+echo "cleaning apt" | $OUTPUT
 sudo apt-get clean && sudo apt-get autoremove
-echo "apt is now cleaned" | $VOICE
+echo "apt is now cleaned" | $OUTPUT
 }
 CLNUP
-echo "all bloatware is now removed" | $VOICE
+echo "all bloatware is now removed" | $OUTPUT
 } ### remove bloatware ends here
 
 
 MAINMENU (){
-echo "Main menu" | $VOICE
+echo "Main menu" | $OUTPUT
 whiptail --title "Main Menu" --menu "Choose an option" 25 78 16 \ "REMBLOATWARE" "remove certain bloatware." \ "INSTALLTOOLS" "Install certain Toolz." \ "REMOVETOOLS" "Remove certain toolz" \ "MANUALS" "Show manual or help for certain toolz." \ "EXIT" "exit to cli."
 }
 #MAINMENU
