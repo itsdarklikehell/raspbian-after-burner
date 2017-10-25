@@ -4,6 +4,9 @@ CONFIG(){
 INSTLL="sudo apt-get install -y "
 REMOVE="sudo apt-get purghe "
 VOICE="flite"
+#Try using dialog to replace whiptail if you don't have whiptail: 
+alias whiptail='dialog'
+eval `resize`
 echo "starting raspbian after burner script" | $VOICE
 whiptail --title "Raspbian After Burner" --infobox "This is the Raspbian After Burner, WARING USE WITH CARE!" 8 78
 } ### CONFIG ENDS HERE ###
@@ -420,11 +423,7 @@ ALLDONE
 
 
 MAINMENU (){
-#Try using dialog to replace whiptail if you don't have whiptail: 
-alias whiptail='dialog'
-
 echo "Main menu" | $VOICE
-eval `resize`
 whiptail --title "Main Menu" --menu "Choose an option" 25 78 16 \ "REMBLOATWARE" "remove certain bloatware." \ "INSTALLTOOLS" "Install certain Toolz." \ "REMOVETOOLS" "Remove certain toolz" \ "MANUALS" "Show manual or help for certain toolz." \ "EXIT" "exit to cli."
 }
 MAINMENU
