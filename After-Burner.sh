@@ -418,11 +418,6 @@ ALLDONE
 
 
 MAINMENU (){
-whiptail --title "Main Menu" --menu "Choose an option" 25  $LINES $COLUMNS $(( $LINES - 8 )) \
-"REMBLOATWARE" "remove certain bloatware." \
-"INSTALLTOOLS" "Install certain Toolz." \
-"REMOVETOOLS" "Remove certain toolz" \
-"MANUALS" "Show manual or help for certain toolz." \
-"EXIT" "exit to cli."
+whiptail --title "Main Menu" --menu "Choose an option" 25  $LINES $COLUMNS $(( $LINES - 8 )) \ "REMBLOATWARE" "remove certain bloatware." \ "INSTALLTOOLS" "Install certain Toolz." \ "REMOVETOOLS" "Remove certain toolz" \ "MANUALS" "Show manual or help for certain toolz." \ "EXIT" "exit to cli."
 }
-#MAINMENU
+MAINMENU
