@@ -418,6 +418,9 @@ ALLDONE
 
 
 MAINMENU (){
+#Try using dialog to replace whiptail if you don't have whiptail: 
+alias whiptail='dialog'
+
 echo "Main menu" | $VOICE
 eval `resize`
 whiptail --title "Main Menu" --menu "Choose an option" 25 78 16 \ "REMBLOATWARE" "remove certain bloatware." \ "INSTALLTOOLS" "Install certain Toolz." \ "REMOVETOOLS" "Remove certain toolz" \ "MANUALS" "Show manual or help for certain toolz." \ "EXIT" "exit to cli."
