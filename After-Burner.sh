@@ -3,6 +3,7 @@
 ## ***** todo *****
 #mpd
 #mpg123
+#add armitage cortana scripts
 
 CONFIG(){
 ### CONFIG GOES HERE ###
