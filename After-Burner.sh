@@ -343,7 +343,7 @@ $INSTLL git apache2 python-requests libapache2-mod-php python-pymssql build-esse
 cd
 git clone https://github.com/trustedsec/social-engineer-toolkit/ set/
 cd set
-python setup.py install
+sudo python setup.py install
 }
 
 PIVPN(){
@@ -414,7 +414,7 @@ echo "mitmf installed" | $OUTPUT
 #WIFITE
 #FERN  ## NEEDS FIXING
 #CRUNCH
-WASH
+#WASH ## NEEDS FIXING
 SETOOLKIT
 #PIVPN ## NEEDDS FIXING (openvpn conflicts)
 #OPENVPN ## NEEDS FIXING (pivpn conflicts)
