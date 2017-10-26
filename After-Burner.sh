@@ -3,7 +3,6 @@
 ## ***** todo *****
 #mpd
 #mpg123
-#add armitage cortana scripts
 
 CONFIG(){
 ### CONFIG GOES HERE ###
@@ -147,7 +146,7 @@ $INSTLL build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 #curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 curl -sSL https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
-#curl -L https://get.rvm.io | bash -s stable --ruby
+#curl -sSL https://get.rvm.io | bash -s stable --ruby
 source ~/.rvm/scripts/rvm
 echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
 source ~/.bashrc
@@ -203,7 +202,17 @@ nano /tmp/database.yml
 cp /tmp/database.yml /opt/metasploit-framework/config/database.yml
 sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
 source /etc/profile
-echo "metasploit should now be installed. you should start the msfconsole to start creating the tables and filling the database." | $OUTPUT
+echo "metasploit should now be installed. you should start the msfconsole to ser if it is able to connect to the database and start creating the tables." | $OUTPUT
+}
+
+ARMITAGE(){
+curl -# -o /tmp/armitage.tgz http://www.fastandeasyhacking.com/download/armitage150813.tgz
+sudo tar -xvzf /tmp/armitage.tgz -C /opt 
+sudo ln -s /opt/armitage/armitage /usr/local/bin/armitage
+sudo ln -s /opt/armitage/teamserver /usr/local/bin/teamserver
+sudo sh -c "echo java -jar /opt/armitage/armitage.jar \$\* > /opt/armitage/armitage"
+sudo perl -pi -e 's/armitage.jar/\/opt\/armitage\/armitage.jar/g' /opt/armitage/teamserver
+sudo git clone https://github.com/rsmudge/cortana-scripts /opt/armitage/cortana-scripts/
 }
 
 BLATHER(){
@@ -393,7 +402,8 @@ echo "mitmf installed" | $OUTPUT
 #AWSMRETRPIBGM
 #CRE8AP
 #EMBY
-#METASPLOIT
+METASPLOIT
+ARMITAGE
 #BLATHER
 #FLUXION
 #HYDRA
@@ -402,7 +412,6 @@ echo "mitmf installed" | $OUTPUT
 #CAIN
 #NIKTO
 #ETHERAPE
-
 #ETTERCAP
 #KISMET
 #NETCAT
@@ -420,7 +429,7 @@ echo "mitmf installed" | $OUTPUT
 #PIVPN ## NEEDDS FIXING (openvpn conflicts)
 #OPENVPN ## NEEDS FIXING (pivpn conflicts)
 #SSHFS
-NMAP
+#NMAP
 #MITMF
 OKDONE
 echo "all tools are now installed" | $OUTPUT
