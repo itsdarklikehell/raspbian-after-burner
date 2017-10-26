@@ -413,11 +413,11 @@ echo "mitmf installed" | $OUTPUT
 #PIXIEWPS
 #WIFITE
 #FERN  ## NEEDS FIXING
-CRUNCH
+#CRUNCH
 WASH
 SETOOLKIT
-PIVPN
-#OPENVPN
+#PIVPN ## NEEDDS FIXING (openvpn conflicts)
+#OPENVPN ## NEEDS FIXING (pivpn conflicts)
 #SSHFS
 #NMAP
 #MITMF
