@@ -420,7 +420,7 @@ KISMET
 #OPENVPN
 #SSHFS
 #NMAP
-MITMF
+#MITMF
 OKDONE
 echo "all tools are now installed" | $OUTPUT
 } ### Instaling ends here
