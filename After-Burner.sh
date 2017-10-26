@@ -416,11 +416,11 @@ echo "mitmf installed" | $OUTPUT
 #FERN  ## NEEDS FIXING
 #CRUNCH
 #WASH ## NEEDS FIXING
-SETOOLKIT
+#SETOOLKIT
 #PIVPN ## NEEDDS FIXING (openvpn conflicts)
 #OPENVPN ## NEEDS FIXING (pivpn conflicts)
 #SSHFS
-#NMAP
+NMAP
 #MITMF
 OKDONE
 echo "all tools are now installed" | $OUTPUT
