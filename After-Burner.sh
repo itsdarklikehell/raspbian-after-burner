@@ -403,7 +403,7 @@ echo "mitmf installed" | $OUTPUT
 #ETHERAPE
 
 ETTERCAP
-#KISMET
+KISMET
 #NETCAT
 #NGREP
 #NTOP
