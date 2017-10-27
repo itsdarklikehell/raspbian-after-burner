@@ -135,13 +135,13 @@ echo "installing metasploit" | $OUTPUT
 
 # NORMAL MANUALINSTALLATION
 # We start by adding the Oracle Java Package source
+$INSTLL software-properties-common
 sudo add-apt-repository -y ppa:webupd8team/java
 #Once added we can install the latest version
 UPGR8
 $INSTLL oracle-java8-installer
 #Now that we know that we are running an updated system we can install all the dependent packages that are needed by Metasploit Framework:
 $INSTLL build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev zenmap nmap
-
 #Installing Ruby using RVM:
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 #curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
@@ -379,7 +379,7 @@ $INSTLL sshfs
 }
 
 NMAP(){
-$INSTLL nmap
+$INSTLL nmap zenmap
 }
 MITMF(){
 echo "installing mitmf" | $OUTPUT
