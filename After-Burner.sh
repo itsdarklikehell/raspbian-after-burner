@@ -169,7 +169,7 @@ ruby -v
 # sudo plugin so we can run Metasploit as root with "rbenv sudo msfconsole" 
 #git clone git://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sudo
 
-exec $SHELL
+#exec $SHELL
 
 #RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
 #rbenv install $RUBYVERSION
