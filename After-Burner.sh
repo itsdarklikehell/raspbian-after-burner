@@ -149,7 +149,8 @@ curl -sSL https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
 #curl -sSL https://get.rvm.io | bash -s stable --ruby
 source ~/.rvm/scripts/rvm
 echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
-source ~/.bashrc
+#source ~/.bashrc
+source ~/.rvm/scripts/rvm
 RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
 rvm install $RUBYVERSION
 rvm use $RUBYVERSION --default
