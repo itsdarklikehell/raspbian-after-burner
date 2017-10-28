@@ -56,9 +56,10 @@ sudo update-locale
 #ENSSH
 #LOCL
 #OKDONE
-#### basic setup complete #####
+#### basic config complete #####
 
-INSTALLTOOLS(){ ### INSTALLING TOOLS STARTS HERE
+### INSTALLING TOOLS STARTS HERE
+INSTALLTOOLS(){ 
 echo "installing tools" | $OUTPUT
 
 RETROPIE(){
@@ -526,9 +527,11 @@ SSHFS
 #ENABLEFFMPEGRETROPIE
 OKDONE
 echo "all tools are now installed" | $OUTPUT
-} ### Instaling ends here
+}
+### Instaling ends here
 
-REMBLOATWARE(){ ### Remove Bloatware starts here
+### Remove Bloatware starts here
+REMBLOATWARE(){ 
 echo "removing bloatware" | $OUTPUT
 $REMOVE wolfram-engine 
 $REMOVE libreoffice* 
@@ -574,13 +577,9 @@ echo "apt is now cleaned" | $OUTPUT
 }
 CLNUP
 echo "all bloatware is now removed" | $OUTPUT
-} ### remove bloatware ends here
+} 
+### remove bloatware ends here
 
-MAINMENU (){
-echo "Main menu" | $OUTPUT
-whiptail --title "Main Menu" --menu "Choose an option" 25 78 16 \ "REMBLOATWARE" "remove certain bloatware." \ "INSTALLTOOLS" "Install certain Toolz." \ "REMOVETOOLS" "Remove certain toolz" \ "MANUALS" "Show manual or help for certain toolz." \ "EXIT" "exit to cli."
-}
-#MAINMENU
 #REMBLOATWARE
 INSTALLTOOLS
 #CLNUP
