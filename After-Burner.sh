@@ -579,7 +579,6 @@ CLNUP
 echo "all bloatware is now removed" | $OUTPUT
 } 
 ### remove bloatware ends here
-dialog --title "Use With Care" --infobox "Use this script with EXTREME CARE!" 8 78
 # If you cannot understand this, read Bash_Shell_Scripting#if_statements again.
 if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) then
     echo "User selected Yes, exit status was $?."
