@@ -30,6 +30,7 @@ CONFIG ### config gets set
 OKDONE(){
 echo "OK done sir" | $OUTPUT
 echo "Ok done sir"
+whiptail --title "All Done!" --msgbox "All done sir." 8 78
 }
 
 EXIT(){
