@@ -579,7 +579,7 @@ CLNUP
 echo "all bloatware is now removed" | $OUTPUT
 } 
 ### remove bloatware ends here
-whiptail --title "Use With Care" --infobox "Use this script with EXTREME CARE!" 8 78
+dialog --title "Use With Care" --infobox "Use this script with EXTREME CARE!" 8 78
 #REMBLOATWARE
 INSTALLTOOLS
 #CLNUP
