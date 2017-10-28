@@ -29,6 +29,7 @@ CONFIG ### config gets set
 
 OKDONE(){
 echo "OK done sir" | $OUTPUT
+echo "Ok done sir"
 }
 
 EXIT(){
