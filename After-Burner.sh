@@ -382,6 +382,7 @@ $INSTLL sshfs
 NMAP(){
 $INSTLL nmap zenmap
 }
+
 MITMF(){
 echo "installing mitmf" | $OUTPUT
 $INSTLL python-dev python-setuptools libpcap0.8-dev libnetfilter-queue-dev libssl-dev libjpeg-dev libxml2-dev libxslt1-dev libcapstone3 libcapstone-dev libffi-dev file
@@ -396,6 +397,12 @@ cd MITMf && git submodule init && git submodule update --recursive
 sudo pip install -r requirements.txt
 python mitmf.py --help
 echo "mitmf installed" | $OUTPUT
+}
+
+
+FFMPEG(){
+cd
+wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-arm64-64bit-static.tar.xz
 }
 
 #RETROPIE
@@ -432,6 +439,7 @@ ARMITAGE
 #SSHFS
 #NMAP
 #MITMF
+FFMPEG
 OKDONE
 echo "all tools are now installed" | $OUTPUT
 } ### Instaling ends here
