@@ -525,7 +525,6 @@ SSHFS
 #MITMF
 #FFMPEG
 #ENABLEFFMPEGRETROPIE
-OKDONE
 echo "all tools are now installed" | $OUTPUT
 }
 ### Instaling ends here
@@ -583,3 +582,4 @@ echo "all bloatware is now removed" | $OUTPUT
 #REMBLOATWARE
 INSTALLTOOLS
 #CLNUP
+OKDONE
