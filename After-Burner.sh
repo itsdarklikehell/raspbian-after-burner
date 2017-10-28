@@ -35,6 +35,8 @@ whiptail --title "All Done!" --msgbox "All done sir." 8 78
 
 EXIT(){
 echo "stopping raspbian after burner script" | $OUTPUT
+echo "stopping raspbian after burner script"
+whiptail --title "Script ended!" --msgbox "Script ended!" 8 78
 #exit 
 }
 
@@ -581,6 +583,7 @@ echo "all bloatware is now removed" | $OUTPUT
 } 
 ### remove bloatware ends here
 # If you cannot understand this, read Bash_Shell_Scripting#if_statements again.
+whiptail --title "CAUTION!" --msgbox "Run this script with CAUTION! I am in no way resposible for your actions. read the readme.ml and the script first!" 8 78
 if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) then
     echo "User selected Yes, exit status was $?."
     INSTALLTOOLS
@@ -589,5 +592,6 @@ if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) 
     OKDONE
 else
     echo "User selected No, exit status was $?."
-    exit
+    EXIT
 fi
+
