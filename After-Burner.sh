@@ -403,6 +403,9 @@ echo "mitmf installed" | $OUTPUT
 FFMPEG(){
 cd
 wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-arm64-64bit-static.tar.xz
+
+sudo tar -xvzf ffmpeg-release-arm64-64bit-static.tar.xz /opt/ffmpeg
+cd /opt/ffmpeg
 }
 
 #RETROPIE
@@ -410,8 +413,8 @@ wget https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-arm64-64bit-static
 #AWSMRETRPIBGM
 #CRE8AP
 #EMBY
-METASPLOIT
-ARMITAGE
+#METASPLOIT
+#ARMITAGE
 #BLATHER
 #FLUXION
 #HYDRA
@@ -435,7 +438,7 @@ ARMITAGE
 #WASH ## NEEDS FIXING
 #SETOOLKIT
 #PIVPN ## NEEDDS FIXING (openvpn conflicts)
-#OPENVPN ## NEEDS FIXING (pivpn conflicts)
+OPENVPN ## NEEDS FIXING (pivpn conflicts)
 #SSHFS
 #NMAP
 #MITMF
