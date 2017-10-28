@@ -3,6 +3,7 @@
 ## ***** todo *****
 #mpd
 #mpg123
+# build menu(s) for selection
 
 CONFIG(){
 ### CONFIG GOES HERE ###
@@ -25,7 +26,6 @@ sudo apt-get update && sudo apt-get upgrade -y
 echo "updating done" | $OUTPUT
 }
 } ### CONFIG ENDS HERE ###
-CONFIG ### config gets set
 
 OKDONE(){
 echo "OK done sir" | $OUTPUT
@@ -582,6 +582,9 @@ CLNUP
 echo "all bloatware is now removed" | $OUTPUT
 } 
 ### remove bloatware ends here
+
+MENU(){
+CONFIG ### config gets set
 # If you cannot understand this, read Bash_Shell_Scripting#if_statements again.
 whiptail --title "CAUTION!" --msgbox "Run this script with CAUTION! I am in no way resposible for your actions. read the readme.ml and the script first!" 8 78
 if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) then
@@ -594,4 +597,5 @@ else
     echo "User selected No, exit status was $?."
     EXIT
 fi
-
+}
+MENU
