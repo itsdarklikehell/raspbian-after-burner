@@ -580,7 +580,14 @@ echo "all bloatware is now removed" | $OUTPUT
 } 
 ### remove bloatware ends here
 dialog --title "Use With Care" --infobox "Use this script with EXTREME CARE!" 8 78
-#REMBLOATWARE
-INSTALLTOOLS
-#CLNUP
-OKDONE
+# If you cannot understand this, read Bash_Shell_Scripting#if_statements again.
+if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) then
+    echo "User selected Yes, exit status was $?."
+    INSTALLTOOLS
+    #REMBLOATWARE
+    #CLNUP
+    OKDONE
+else
+    echo "User selected No, exit status was $?."
+    exit
+fi
