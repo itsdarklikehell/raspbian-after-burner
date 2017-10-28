@@ -18,19 +18,15 @@ OUTPUT="flite"
 CLNUP(){
 echo "cleaning apt" | $OUTPUT && sudo apt-get clean && sudo apt-get autoremove && echo "apt is now cleaned" | $OUTPUT
 }
-
-} ### CONFIG ENDS HERE ###
-
-CONFIG ### config gets set
-
 UPGR8(){
 #	update and upgrade system first, pretty obvious.
 echo "updating and upgrading system" | $OUTPUT 
 sudo apt-get update && sudo apt-get upgrade -y
 echo "updating done" | $OUTPUT
 }
-UPGR8
-
+} ### CONFIG ENDS HERE ###
+CONFIG ### config gets set
+#UPGR8
 OKDONE(){
 echo "OK done sir" | $OUTPUT
 }
