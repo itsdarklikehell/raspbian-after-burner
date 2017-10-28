@@ -26,7 +26,7 @@ echo "updating done" | $OUTPUT
 }
 } ### CONFIG ENDS HERE ###
 CONFIG ### config gets set
-#UPGR8
+
 OKDONE(){
 echo "OK done sir" | $OUTPUT
 }
@@ -55,6 +55,7 @@ sudo update-locale
 #RASPICONFIG
 #ENSSH
 #LOCL
+#OKDONE
 #### basic setup complete #####
 
 INSTALLTOOLS(){ ### INSTALLING TOOLS STARTS HERE
@@ -325,6 +326,7 @@ cd src/
 make
 sudo make install
 }
+
 WIFITE(){
 wget https://raw.github.com/derv82/wifite/master/wifite.py
 chmod +x wifite.py
@@ -394,7 +396,6 @@ sudo pip install -r requirements.txt
 python mitmf.py --help
 echo "mitmf installed" | $OUTPUT
 }
-
 
 FFMPEG(){
 echo "Begining Installation of FFmpeg Suite" 
@@ -486,7 +487,7 @@ sudo ./retropie_packages.sh retroarch
 git checkout scriptmodules/emulators/retroarch.sh
 echo "Now FFmpeg has been compiled and installed, and RetroArch has been rebuilt, it’s worth confirming that the recording facility has been incorporated. This is a simple check as the RetroArch menu (a.k.a RGUI) will contain additional entries if the process has been successful." | $OUTPUT
 }
-
+UPGR8
 #RETROPIE
 #RETROPIESETUP
 #AWSMRETRPIBGM
@@ -574,7 +575,6 @@ echo "apt is now cleaned" | $OUTPUT
 CLNUP
 echo "all bloatware is now removed" | $OUTPUT
 } ### remove bloatware ends here
-
 
 MAINMENU (){
 echo "Main menu" | $OUTPUT
