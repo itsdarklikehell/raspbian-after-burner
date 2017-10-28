@@ -518,7 +518,7 @@ echo "Now FFmpeg has been compiled and installed, and RetroArch has been reb
 #SETOOLKIT
 #PIVPN ## NEEDDS FIXING (openvpn conflicts)
 #OPENVPN ## NEEDS FIXING (pivpn conflicts)
-#SSHFS
+SSHFS
 #NMAP
 #MITMF
 #FFMPEG
