@@ -406,9 +406,10 @@ echo "mitmf installed" | $OUTPUT
 
 FFMPEG(){
 #Create Working Directories 
-echo "Setting up working directories to be used during the installation and build process"
+#echo "Setting up working directories to be used during the installation and build process"
 cd
-mkdir ~/ffmpeg_sources mkdir ~/ffmpeg_build
+mkdir ~/ffmpeg_sources 
+mkdir ~/ffmpeg_build
 
 #Build Tools
 echo "Installing various tools and packages, including audio-video codecs, required for building FFmpeg"
@@ -493,9 +494,10 @@ git checkout scriptmodules/emulators/retroarch.sh
 echo "Now FFmpeg has been compiled and installed, and RetroArch has been rebuilt, it’s worth confirming that the recording facility has been incorporated. This is a simple check as the RetroArch menu (a.k.a RGUI) will contain additional entries if the process has been successful." | $OUTPUT
 }
 
-XRDP(){
-$INSTLL xrdp
-}
+
+
+
+
 
 UPGR8
 #RETROPIE
@@ -532,10 +534,10 @@ UPGR8
 #SSHFS
 #NMAP
 #MITMF
-#FFMPEG
+FFMPEG
 #ENABLEFFMPEGRETROPIE
 #XRDP
-echo "all tools are now installed" | $OUTPUT
+
 choice=$(whiptail --title "Check list example" --separate-output --checklist \
 "Choose wha you would like to install" 20 78 4 \
 "XRDP" "install xrdp." ON \
@@ -544,13 +546,15 @@ choice=$(whiptail --title "Check list example" --separate-output --checklist \
 "REMOTE_MOUNT" "Allow mounting of remote devices" OFF 3>&1 1>&2 2>&3)
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
-    echo "The chosen distro is:" $choice
+    echo "The chosen options are:" $choice
     if [ $choice = XRDP ]; then
     $INSTLL xrdp
     fi
+    ALLDONE
 else
     echo "You chose Cancel."
 fi
+
 }
 ### Instaling ends here
 
