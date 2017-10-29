@@ -532,9 +532,9 @@ UPGR8
 #SSHFS
 #NMAP
 #MITMF
-FFMPEG
+#FFMPEG
 #ENABLEFFMPEGRETROPIE
-XRDP
+#XRDP
 echo "all tools are now installed" | $OUTPUT
 }
 ### Instaling ends here
