@@ -583,14 +583,13 @@ echo "all bloatware is now removed" | $OUTPUT
 } 
 ### remove bloatware ends here
 TESTING(){
-whiptail --title "Check list example" --checklist \
-"Choose user's permissions" 20 78 4 \
-"NET_OUTBOUND" "Allow connections to other hosts" ON \
-"NET_INBOUND" "Allow connections from other hosts" OFF \
-"LOCAL_MOUNT" "Allow mounting of local devices" OFF \
-"REMOTE_MOUNT" "Allow mounting of remote devices" OFF
+whiptail --title "Menu example" --menu "Choose an option" 25 78 16 \
+"<-- Back" "Return to the main menu." \
+"INSTALLTOOLS" "Install selection of tools." \
+"REMOVETOOLS" "Remove selection of tools." \
+"REMBLOATWARE" "Remove selection of bloatware." \
+"EXIT" "Exit to cli."
 }
-
 
 MENU(){
 CONFIG ### config gets set
