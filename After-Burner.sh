@@ -433,20 +433,20 @@ echo "X264 Codec"
 #make distclean
 
 echo "Libfdk-aac Codec"
-cd ~/ffmpeg_sources
-wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master
-tar xzvf fdk-aac.tar.gz
-cd mstorsjo-fdk-aac*
-autoreconf -fiv
-./configure --enable-shared
-make -j4
-sudo make install
-make clean
-make distclean
+#cd ~/ffmpeg_sources
+#wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master
+#tar xzvf fdk-aac.tar.gz
+#cd mstorsjo-fdk-aac*
+#autoreconf -fiv
+#./configure --enable-shared
+#make -j4
+#sudo make install
+#make clean
+#make distclean
 
 #Libmp3lame Codec
-#echo "Libmp3lame Codec"
-#$INSTLL libmp3lame-dev
+echo "Libmp3lame Codec"
+$INSTLL libmp3lame-dev
 
 #Libopus Codec
 #echo "Libopus Codec"
