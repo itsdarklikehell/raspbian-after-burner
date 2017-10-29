@@ -4,6 +4,8 @@
 #mpd
 #mpg123
 # build menu(s) for selection
+#xrdp
+
 
 CONFIG(){
 ### CONFIG GOES HERE ###
@@ -492,6 +494,8 @@ sudo ./retropie_packages.sh retroarch
 git checkout scriptmodules/emulators/retroarch.sh
 echo "Now FFmpeg has been compiled and installed, and RetroArch has been rebuilt, it’s worth confirming that the recording facility has been incorporated. This is a simple check as the RetroArch menu (a.k.a RGUI) will contain additional entries if the process has been successful." | $OUTPUT
 }
+
+
 UPGR8
 #RETROPIE
 #RETROPIESETUP
@@ -524,10 +528,10 @@ UPGR8
 #SETOOLKIT
 #PIVPN ## NEEDDS FIXING (openvpn conflicts)
 #OPENVPN ## NEEDS FIXING (pivpn conflicts)
-SSHFS
+#SSHFS
 #NMAP
 #MITMF
-#FFMPEG
+FFMPEG
 #ENABLEFFMPEGRETROPIE
 echo "all tools are now installed" | $OUTPUT
 }
@@ -597,8 +601,8 @@ whiptail --title "CAUTION!" --msgbox "Run this script with CAUTION! I am in no w
 if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) then
     echo "User selected Yes, exit status was $?."
     
-    TESTING
-    #INSTALLTOOLS
+    #TESTING
+    INSTALLTOOLS
     #REMBLOATWARE
     #CLNUP
     OKDONE
