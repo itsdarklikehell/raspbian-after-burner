@@ -536,7 +536,7 @@ UPGR8
 #ENABLEFFMPEGRETROPIE
 #XRDP
 echo "all tools are now installed" | $OUTPUT
-INSTALLALL=$(whiptail --title "Check list example" --checklist \
+INSTALLALL=$(whiptail --title "Check list example" --checklist --seperate-output \
 "Choose user's permissions" 20 78 4 \
 "XRDP" "install xrdp." ON \
 "NET_INBOUND" "Allow connections from other hosts" OFF \
