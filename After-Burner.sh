@@ -450,20 +450,20 @@ echo "Libmp3lame Codec"
 
 #Libopus Codec
 echo "Libopus Codec"
-$INSTLL libopus-dev
+#$INSTLL libopus-dev
 
 #Libvpx Codec 
-#echo "Libvpx Codec" 
-#cd ~/ffmpeg_sources 
-#wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2
-#tar xjvf libvpx-1.5.0.tar.bz2
-#cd libvpx-1.5.0
-#PATH="$HOME/bin:$PATH"
-#./configure --enable-shared --disable-examples --disable-unit-tests
-#PATH="$HOME/bin:$PATH" make -j4
-#sudo make install
-#make clean
-#make distclean
+echo "Libvpx Codec" 
+cd ~/ffmpeg_sources 
+wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2
+tar xjvf libvpx-1.5.0.tar.bz2
+cd libvpx-1.5.0
+PATH="$HOME/bin:$PATH"
+./configure --enable-shared --disable-examples --disable-unit-tests
+PATH="$HOME/bin:$PATH" make -j4
+sudo make install
+make clean
+make distclean
 
 # FFmpeg Suite
 #echo "Compiling and installing the FFmpeg Suite"
