@@ -536,12 +536,18 @@ UPGR8
 #ENABLEFFMPEGRETROPIE
 #XRDP
 echo "all tools are now installed" | $OUTPUT
-whiptail --title "Check list example" --checklist \
+INSTALLALL=$(whiptail --title "Check list example" --checklist \
 "Choose user's permissions" 20 78 4 \
 "XRDP" "install xrdp." ON \
 "NET_INBOUND" "Allow connections from other hosts" OFF \
 "LOCAL_MOUNT" "Allow mounting of local devices" OFF \
-"REMOTE_MOUNT" "Allow mounting of remote devices" OFF
+"REMOTE_MOUNT" "Allow mounting of remote devices" OFF 3>&1 1>&2 2>&3 )
+exitstatus=$?
+if [ $exitstatus = 0 ]; then
+    echo "The chosen distro is:" $INSTALLALL
+else
+    echo "You chose Cancel."
+fi
 }
 ### Instaling ends here
 
