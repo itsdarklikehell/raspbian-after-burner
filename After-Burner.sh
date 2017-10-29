@@ -590,7 +590,7 @@ whiptail --title "Check list example" --checklist \
 "LOCAL_MOUNT" "Allow mounting of local devices" OFF \
 "REMOTE_MOUNT" "Allow mounting of remote devices" OFF
 }
-TESTING
+
 
 MENU(){
 CONFIG ### config gets set
@@ -598,7 +598,9 @@ CONFIG ### config gets set
 whiptail --title "CAUTION!" --msgbox "Run this script with CAUTION! I am in no way resposible for your actions. read the readme.ml and the script first!" 8 78
 if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) then
     echo "User selected Yes, exit status was $?."
-    INSTALLTOOLS
+    
+    TESTING
+    #INSTALLTOOLS
     #REMBLOATWARE
     #CLNUP
     OKDONE
@@ -607,4 +609,4 @@ else
     EXIT
 fi
 }
-#MENU
+MENU
