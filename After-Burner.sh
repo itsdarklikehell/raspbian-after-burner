@@ -407,29 +407,30 @@ echo "mitmf installed" | $OUTPUT
 FFMPEG(){
 #Create Working Directories 
 #echo "Setting up working directories to be used during the installation and build process"
-cd
-mkdir ~/ffmpeg_sources 
-mkdir ~/ffmpeg_build
+#cd
+#mkdir ~/ffmpeg_sources 
+#mkdir ~/ffmpeg_build
 
 #Build Tools
-echo "Installing various tools and packages, including audio-video codecs, required for building FFmpeg"
-$INSTLL autoconf automake build-essential libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev
+#echo "Installing various tools and packages, including audio-video codecs, required for building FFmpeg"
+#$INSTLL autoconf automake build-essential libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev
 
 #YASM Assembler
 #echo "Installing the YASM Assembler"
 #$INSTLL yasm
-#echo "Compiling and Installing FFmpeg Codecs"
-#x264 Codec
 
-#echo "X264 Codec"
-#cd /home/pi/ffmpeg_sources
-#git clone git://git.videolan.org/x264
-#cd x264
-#./configure --host=arm-unknown-linux-gnueabi --enable-shared --disable-opencl
-#make -j4
-#sudo make install
-#make clean
-#make distclean
+echo "Compiling and Installing FFmpeg Codecs"
+
+#x264 Codec
+echo "X264 Codec"
+cd /home/pi/ffmpeg_sources
+git clone git://git.videolan.org/x264
+cd x264
+./configure --host=arm-unknown-linux-gnueabi --enable-shared --disable-opencl
+make -j4
+sudo make install
+make clean
+make distclean
 
 #echo "Libfdk-aac Codec"
 #cd ~/ffmpeg_sources
