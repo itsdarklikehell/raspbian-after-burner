@@ -589,10 +589,10 @@ whiptail --title "Menu example" --menu "Choose an option" 25 78 16 \
 "REMOVETOOLS" "Remove selection of tools." \
 "REMBLOATWARE" "Remove selection of bloatware." \
 "EXIT" "Exit to cli."
-}
 if $? == [[ INSTALLTOOLS ]] then
 INSTALLTOOLS
 fi
+}
 
 MENU(){
 CONFIG ### config gets set
