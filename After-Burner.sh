@@ -446,11 +446,11 @@ echo "Libfdk-aac Codec"
 
 #Libmp3lame Codec
 echo "Libmp3lame Codec"
-$INSTLL libmp3lame-dev
+#$INSTLL libmp3lame-dev
 
 #Libopus Codec
-#echo "Libopus Codec"
-#$INSTLL libopus-dev
+echo "Libopus Codec"
+$INSTLL libopus-dev
 
 #Libvpx Codec 
 #echo "Libvpx Codec" 
