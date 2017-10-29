@@ -405,21 +405,18 @@ echo "mitmf installed" | $OUTPUT
 }
 
 FFMPEG(){
-echo "Begining Installation of FFmpeg Suite" 
-#Update APT Repository
-echo "Updating the APT repository information"
-sudo apt-get update 
 #Create Working Directories 
 echo "Setting up working directories to be used during the installation and build process"
-cd ~ mkdir ~/ffmpeg_sources mkdir ~/ffmpeg_build
+cd
+mkdir ~/ffmpeg_sources mkdir ~/ffmpeg_build
 
 #Build Tools
 echo "Installing various tools and packages, including audio-video codecs, required for building FFmpeg"
-sudo apt-get -y install autoconf automake build-essential libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev
+$INSTLL autoconf automake build-essential libass-dev libfreetype6-dev libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev
 
 #YASM Assembler
 echo "Installing the YASM Assembler"
-sudo apt-get install -y yasm
+$INSTLL yasm
 echo "Compiling and Installing FFmpeg Codecs"
 #x264 Codec
 echo "X264 Codec"
@@ -446,11 +443,11 @@ make distclean
 
 #Libmp3lame Codec
 echo "Libmp3lame Codec"
-sudo apt-get install -y libmp3lame-dev
+$INSTLL libmp3lame-dev
 
 #Libopus Codec
 echo "Libopus Codec"
-sudo apt-get install -y libopus-dev
+$INSTLL libopus-dev
 
 #Libvpx Codec 
 echo "Libvpx Codec" 
@@ -481,7 +478,6 @@ hash -r
 echo "Updating Shared Library Cache" 
 ldconfig 
 echo "FFmpeg and Codec Installation Complete"
-
 }
 
 ENABLEFFMPEGRETROPIE(){
@@ -495,6 +491,9 @@ git checkout scriptmodules/emulators/retroarch.sh
 echo "Now FFmpeg has been compiled and installed, and RetroArch has been rebuilt, it’s worth confirming that the recording facility has been incorporated. This is a simple check as the RetroArch menu (a.k.a RGUI) will contain additional entries if the process has been successful." | $OUTPUT
 }
 
+XRDP(){
+$INSTLL xrdp
+}
 
 UPGR8
 #RETROPIE
@@ -533,6 +532,7 @@ UPGR8
 #MITMF
 FFMPEG
 #ENABLEFFMPEGRETROPIE
+XRDP
 echo "all tools are now installed" | $OUTPUT
 }
 ### Instaling ends here
