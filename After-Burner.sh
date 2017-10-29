@@ -591,6 +591,7 @@ whiptail --title "Menu example" --menu "Choose an option" 25 78 16 \
 "EXIT" "Exit to cli."
 if $? == [[ INSTALLTOOLS ]] then
 INSTALLTOOLS
+else
 fi
 }
 
