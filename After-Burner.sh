@@ -454,32 +454,32 @@ echo "Libopus Codec"
 
 #Libvpx Codec 
 echo "Libvpx Codec" 
-cd ~/ffmpeg_sources 
-wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2
-tar xjvf libvpx-1.5.0.tar.bz2
-cd libvpx-1.5.0
-PATH="$HOME/bin:$PATH"
-./configure --enable-shared --disable-examples --disable-unit-tests
-PATH="$HOME/bin:$PATH" make -j4
-sudo make install
-make clean
-make distclean
-
-# FFmpeg Suite
-#echo "Compiling and installing the FFmpeg Suite"
-#cd ~/ffmpeg_sources
-#wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
-#tar xjvf ffmpeg-snapshot.tar.bz2
-#cd ffmpeg
-#PATH="$HOME/bin:$PATH" ./configure \ --pkg-config-flags="--static" \ --extra-cflags="-fPIC -I$HOME/ffmpeg_build/include" \ --extra-ldflags="-L$HOME/ffmpeg_build/lib" \ --enable-gpl \ --enable-libass \ --enable-libfdk-aac \ --enable-libfreetype \ --enable-libmp3lame \ --enable-libopus \ --enable-libtheora \ --enable-libvorbis \ --enable-libvpx \ --enable-libx264 \ --enable-nonfree \ --enable-pic \ --extra-ldexeflags=-pie \ --enable-shared 
+#cd ~/ffmpeg_sources 
+#wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2
+#tar xjvf libvpx-1.5.0.tar.bz2
+#cd libvpx-1.5.0
+#PATH="$HOME/bin:$PATH"
+#./configure --enable-shared --disable-examples --disable-unit-tests
 #PATH="$HOME/bin:$PATH" make -j4
 #sudo make install
+#make clean
 #make distclean
-#hash -r 
+
+# FFmpeg Suite
+echo "Compiling and installing the FFmpeg Suite"
+cd ~/ffmpeg_sources
+wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
+tar xjvf ffmpeg-snapshot.tar.bz2
+cd ffmpeg
+PATH="$HOME/bin:$PATH" ./configure \ --pkg-config-flags="--static" \ --extra-cflags="-fPIC -I$HOME/ffmpeg_build/include" \ --extra-ldflags="-L$HOME/ffmpeg_build/lib" \ --enable-gpl \ --enable-libass \ --enable-libfdk-aac \ --enable-libfreetype \ --enable-libmp3lame \ --enable-libopus \ --enable-libtheora \ --enable-libvorbis \ --enable-libvpx \ --enable-libx264 \ --enable-nonfree \ --enable-pic \ --extra-ldexeflags=-pie \ --enable-shared 
+PATH="$HOME/bin:$PATH" make -j4
+sudo make install
+make distclean
+hash -r 
 #Update Shared Library Cache
-#echo "Updating Shared Library Cache" 
-#sudo ldconfig 
-#echo "FFmpeg and Codec Installation Complete"
+echo "Updating Shared Library Cache" 
+sudo ldconfig 
+echo "FFmpeg and Codec Installation Complete"
 }
 
 ENABLEFFMPEGRETROPIE(){
