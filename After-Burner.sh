@@ -469,7 +469,8 @@ cd ~/ffmpeg_sources
 wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 tar xjvf ffmpeg-snapshot.tar.bz2
 cd ffmpeg
 PATH="$HOME/bin:$PATH"
-./configure \ --pkg-config-flags="--static" \ --extra-cflags="-fPIC -I$HOME/ffmpeg_build/include" \ --extra-ldflags="-L$HOME/ffmpeg_build/lib" \ --enable-gpl \ --enable-libass \ --enable-libfdk-aac \ --enable-libfreetype \ --enable-libmp3lame \ --enable-libopus \ --enable-libtheora \ --enable-libvorbis \ --enable-libvpx \ --enable-libx264 \ --enable-nonfree \ --enable-pic \ --extra-ldexeflags=-pie \ --enable-shared PATH="$HOME/bin:$PATH"
+./configure \ --pkg-config-flags="--static" \ --extra-cflags="-fPIC -I$HOME/ffmpeg_build/include" \ --extra-ldflags="-L$HOME/ffmpeg_build/lib" \ --enable-gpl \ --enable-libass \ --enable-libfdk-aac \ --enable-libfreetype \ --enable-libmp3lame \ --enable-libopus \ --enable-libtheora \ --enable-libvorbis \ --enable-libvpx \ --enable-libx264 \ --enable-nonfree \ --enable-pic \ --extra-ldexeflags=-pie \ --enable-shared 
+PATH="$HOME/bin:$PATH"
 make -j4
 sudo make install
 make distclean
