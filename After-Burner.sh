@@ -545,6 +545,9 @@ choice=$(whiptail --title "Check list example" --separate-output --checklist \
 exitstatus=$?
 if [ $exitstatus = 0 ]; then
     echo "The chosen distro is:" $choice
+    if [ $choice = XRDP ]; then
+    $INSTLL xrdp
+    fi
 else
     echo "You chose Cancel."
 fi
