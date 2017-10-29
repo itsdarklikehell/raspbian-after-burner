@@ -584,15 +584,10 @@ echo "all bloatware is now removed" | $OUTPUT
 ### remove bloatware ends here
 TESTING(){
 whiptail --title "Menu example" --menu "Choose an option" 25 78 16 \
-"<-- Back" "Return to the main menu." \
 "INSTALLTOOLS" "Install selection of tools." \
 "REMOVETOOLS" "Remove selection of tools." \
 "REMBLOATWARE" "Remove selection of bloatware." \
 "EXIT" "Exit to cli."
-if $? == [[ INSTALLTOOLS ]] then
-INSTALLTOOLS
-else
-fi
 }
 
 MENU(){
