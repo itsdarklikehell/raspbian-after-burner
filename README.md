@@ -1,4 +1,4 @@
-# raspbian-after-burner
+## raspbian-after-burner
 
 This is an addon installer and remover for raspian.
 
@@ -7,13 +7,13 @@ This is basically a script you would want to run to install extras or remove blo
 
 WWWWARNING! this is highly under construction and totaly my interpretation but suggestions are welcome!
 
-Installation
+## Installation
 
-Using curl
+# Using curl
 
 bash <(curl -Ls https://github.com/itsdarklikehell/raspbian-after-burner/raw/master/After-Burner.sh)
 
-Generic
+# Generic
 
 git clone https://github.com/itsdarklikehell/raspbian-after-burner
 cd raspbian-after-burner
