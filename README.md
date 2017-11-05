@@ -11,10 +11,11 @@ Installation
 
 Using curl
 
-bash <(curl -Ls https://github.com/itsdarklikehell/raspbian-after-burner/raw/master/.sh)
+bash <(curl -Ls https://github.com/itsdarklikehell/raspbian-after-burner/raw/master/After-Burner.sh)
+
 Generic
 
 git clone https://github.com/itsdarklikehell/raspbian-after-burner
 cd raspbian-after-burner
-chmod +x
-
+chmod +x After-Burner.sh
+./After-Burner.sh
