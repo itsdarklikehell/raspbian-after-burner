@@ -7,3 +7,14 @@ This is basically a script you would want to run to install extras or remove blo
 
 WWWWARNING! this is highly under construction and totaly my interpretation but suggestions are welcome!
 
+Installation
+
+Using curl
+
+bash <(curl -Ls https://github.com/itsdarklikehell/raspbian-after-burner/raw/master/.sh)
+Generic
+
+git clone https://github.com/itsdarklikehell/raspbian-after-burner
+cd raspbian-after-burner
+chmod +x
+
