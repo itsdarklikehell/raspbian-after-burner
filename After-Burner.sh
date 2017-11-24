@@ -423,47 +423,48 @@ echo "Compiling and Installing FFmpeg Codecs"
 
 #x264 Codec
 echo "X264 Codec"
-#cd /home/pi/ffmpeg_sources
-#git clone git://git.videolan.org/x264
-#cd x264
-#./configure --host=arm-unknown-linux-gnueabi --enable-shared --disable-opencl
-#make -j4
-#sudo make install
-#make clean
-#make distclean
+cd /home/pi/ffmpeg_sources
+git clone git://git.videolan.org/x264
+cd x264
+./configure --host=arm-unknown-linux-gnueabi --enable-shared --disable-opencl
+make
+sudo make install
+make clean
+make distclean
 
 echo "Libfdk-aac Codec"
-#cd ~/ffmpeg_sources
-#wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master
-#tar xzvf fdk-aac.tar.gz
-#cd mstorsjo-fdk-aac*
-#autoreconf -fiv
-#./configure --enable-shared
-#make -j4
-#sudo make install
-#make clean
-#make distclean
+cd ~/ffmpeg_sources
+wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master
+tar xzvf fdk-aac.tar.gz
+cd mstorsjo-fdk-aac*
+autoreconf -fiv
+./configure --enable-shared
+make
+sudo make install
+make clean
+make distclean
 
 #Libmp3lame Codec
 echo "Libmp3lame Codec"
-#$INSTLL libmp3lame-dev
+$INSTLL libmp3lame-dev
 
 #Libopus Codec
 echo "Libopus Codec"
-#$INSTLL libopus-dev
+$INSTLL libopus-dev
 
 #Libvpx Codec 
 echo "Libvpx Codec" 
-#cd ~/ffmpeg_sources 
-#wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2
-#tar xjvf libvpx-1.5.0.tar.bz2
-#cd libvpx-1.5.0
-#PATH="$HOME/bin:$PATH"
-#./configure --enable-shared --disable-examples --disable-unit-tests
-#PATH="$HOME/bin:$PATH" make -j4
-#sudo make install
-#make clean
-#make distclean
+cd ~/ffmpeg_sources 
+wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2
+tar xjvf libvpx-1.5.0.tar.bz2
+cd libvpx-1.5.0
+PATH="$HOME/bin:$PATH"
+./configure --enable-shared --disable-examples --disable-unit-tests
+PATH="$HOME/bin:$PATH" 
+make
+sudo make install
+make clean
+make distclean
 
 # FFmpeg Suite
 echo "Compiling and installing the FFmpeg Suite"
@@ -472,10 +473,12 @@ wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
 tar xjvf ffmpeg-snapshot.tar.bz2
 cd ffmpeg
 PATH="$HOME/bin:$PATH" ./configure \ --pkg-config-flags="--static" \ --extra-cflags="-fPIC -I$HOME/ffmpeg_build/include" \ --extra-ldflags="-L$HOME/ffmpeg_build/lib" \ --enable-gpl \ --enable-libass \ --enable-libfdk-aac \ --enable-libfreetype \ --enable-libmp3lame \ --enable-libopus \ --enable-libtheora \ --enable-libvorbis \ --enable-libvpx \ --enable-libx264 \ --enable-nonfree \ --enable-pic \ --extra-ldexeflags=-pie \ --enable-shared 
-PATH="$HOME/bin:$PATH" make -j4
+PATH="$HOME/bin:$PATH"
+make
 sudo make install
 make distclean
 hash -r 
+
 #Update Shared Library Cache
 echo "Updating Shared Library Cache" 
 sudo ldconfig 
