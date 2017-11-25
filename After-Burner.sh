@@ -554,8 +554,8 @@ UPGR8
 #SSHFS
 #NMAP
 #MITMF
-FFMPEG
-#ENABLEFFMPEGRETROPIE
+#FFMPEG
+ENABLEFFMPEGRETROPIE
 #XRDP
 
 #choice=$(whiptail --title "Check list example" --separate-output --checklist \
