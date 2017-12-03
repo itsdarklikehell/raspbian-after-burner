@@ -127,6 +127,10 @@ sudo echo "deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.0
 UPGR8
 $INSTLL emby-server
 
+#Emby-Premium:
+#git clone https://github.com/nvllsvm/emby-unlocked
+#cd emby-unlocked
+
 #Getting ffmpeg: https://www.johnvansickle.com/ffmpeg/ openSUSE installation: 1. Install an openSUSE image for your corresponding board: Full Index: https://en.opensuse.org/Portal:ARM RPI2: https://en.opensuse.org/HCL:Raspberry_Pi2 RPI3: https://en.opensuse.org/HCL:Raspberry_Pi3 2. Add emby repo. https://software.opensuse.org/download.html?project=home%3Aemby&package=emby-server 3. Install. sudo zypper in emby-server 
 }
 
@@ -514,10 +518,9 @@ git checkout scriptmodules/emulators/retroarch.sh
 echo "Now FFmpeg has been compiled and installed, and RetroArch has been rebuilt, it’s worth confirming that the recording facility has been incorporated. This is a simple check as the RetroArch menu (a.k.a RGUI) will contain additional entries if the process has been successful." | $OUTPUT
 }
 
-
-
-
-
+MPG123(){
+$INSTLL mpg123
+}
 
 UPGR8
 #RETROPIE
@@ -557,9 +560,10 @@ UPGR8
 #FFMPEG
 #ENABLEFFMPEGRETROPIE
 #XRDP
+MPG123
 
 #choice=$(whiptail --title "Check list example" --separate-output --checklist \
-#"Choose wha you would like to install" 20 78 4 \
+#"Choose what you would like to install" 20 78 4 \
 #"XRDP" "install xrdp." ON \
 #"NET_INBOUND" "Allow connections from other hosts" OFF \
 #"LOCAL_MOUNT" "Allow mounting of local devices" OFF \
