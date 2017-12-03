@@ -522,7 +522,228 @@ MPG123(){
 $INSTLL mpg123
 }
 
+APACHE(){
+#Set up Apache Web Server
+
+#Apache is a popular web server application you can install on the Raspberry Pi to allow it to serve web pages.
+
+#On its own, Apache can serve HTML files over HTTP, and with additional modules can serve dynamic web pages using scripting languages such as PHP.
+
+#Install Apache
+
+#First install the apache2 package by typing the following command into the terminal:
+
+sudo apt-get install apache2 -y
+#Test the web server
+
+#By default, Apache puts a test HTML file in the web folder. This default web page is served when you browse to http://localhost/ on the Pi itself, or http://192.168.1.10 (whatever the Pi’s IP address is) from another computer on the network. To find out the Pi’s IP address, type hostname -I at the command line (or read more about finding your IP address) in our documentation.
+#Browse to the default web page, either on the Pi or from another computer on the network, and you should see the following:
+
+#Apache it works
+
+#This means you have Apache working!
+
+#Changing the default web page
+
+#This default web page is just a HTML file on the filesystem. It is located at /var/www/html/index.html.
+
+#Note: The directory was /var/www in Raspbian Wheezy but is now /var/www/html in Raspbian Jessie
+
+#Navigate to this directory in the Terminal and have a look at what’s inside:
+
+cd /var/www/html
+ls -al
+#This will show you:
+#
+#total 12
+#drwxr-xr-x  2 root root 4096 Jan  8 01:29 .
+#drwxr-xr-x  3 root root 4096 Jan  8 01:28 ..
+#-rw-r--r--  1 root root  177 Jan  8 01:29 index.html
+#This shows that there is one file in /var/www/html/ called index.html. The . refers to the directory itself /var/www/html and the .. refers to the parent directory /www/.
+
+#What the columns mean
+
+#The permissions of the file or directory
+#The number of files in the directory (or 1 if it’s a file).
+#The user which owns the file or directory
+#The group which owns the file or directory
+#The file size
+#The last modification date & time
+#As you can see, by default the html directory and index.html file are both owned by the root user, so you’ll need to use sudo to edit them.
+
+#Try editing this file and refreshing the browser to see the web page change. Press Ctrl + X and hit Enter to save and exit.
+}
+
+NGINX(){
+#Install NGINX
+
+#First install the nginx package by typing the following command in to the Terminal:
+
+sudo apt-get install nginx
+#and start the server with:
+sudo /etc/init.d/nginx start
+#Test the web server
+
+#By default, NGINX puts a test HTML file in the web folder. This default web page is served when you browse to http://localhost/ on the Pi itself, or  http://192.168.1.10 (whatever the Pi's IP address is) from another computer on the network. To find the Pi's IP address, type hostname -I at the command line (or read more about finding your IP address).
+#Browse to the default web page either on the Pi or from another computer on the network and you should see the following:
+
+#NGINX welcome page
+
+#NGINX defaults its web page location to  /var/www/html on Raspbian. Navigate to this folder and edit or replace index.nginx-debian.html as you like. You can confirm the default page location at  /etc/nginx/sites-available on the line which starts with 'root', should you need to.
+cd /var/www/html
+
+#Additional - Install PHP
+
+sudo apt-get install php-fpm
+#ENABLE PHP IN NGINX
+
+cd /etc/nginx
+sudo nano sites-enabled/default
+#find the line
+
+#index index.html index.htm;
+#roughly around line 25 (Press CTRL + C in nano to see the current line number)
+
+#Add index.php after index to look like this:
+
+#index index.php index.html index.htm;
+#Scroll down until you find a section with the following content:
+
+# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+#
+# location ~ \.php$ {
+#Edit by removing the # characters on the following lines:
+
+#location ~ \.php$ {
+#    include snippets/fastcgi-php.conf;
+#    fastcgi_pass unix:/var/run/php5-fpm.sock;
+#}
+#Reload the configuration file
+
+sudo /etc/init.d/nginx reload
+#TEST PHP
+
+#Rename index.nginx-debian.html to  index.php:
+
+cd /var/www/html/
+sudo mv index.nginx-debian.html index.php
+#Open index.php with a text editor:
+
+sudo nano index.php
+#Add some dynamic PHP content by replacing the current content:
+
+echo '<?php echo phpinfo(); ?>' > /var/www/html/phpinfo.php
+
+#Save and refresh your browser. You should see a page with the PHP version, logo and current configuration settings.
+}
+
+PHP(){
+#Install PHP
+
+#PHP is a preprocessor; it’s code that runs when the server receives a request for a web page. It runs, works out what needs to be shown on the page, then sends that page to the browser. Unlike static HTML, PHP can show different content under different circumstances. Other languages are capable of this, but since WordPress is written in PHP, that’s what we need to use this time. PHP is a very popular language on the web; large projects like Facebook and Wikipedia are written in PHP.
+#Install the PHP and Apache packages with the following command:
+sudo apt-get install php5 libapache2-mod-php5 -y
+Test PHP
+#Create the file index.php:
+cd /var/www/html/
+sudo nano index.php
+
+#Put some PHP content in it:
+
+#echo '<?php echo "hello world"; ?>' > /var/www/html/index.php
+#Now save the file. Next delete index.html because it takes precendence over index.php:
+
+#sudo rm index.html
+#Refresh your browser. You should see “hello world”. This is not dynamic but it is still served by PHP.
+#If you see the raw PHP above instead of “hello world”, reload and restart Apache like so:
+
+sudo service apache2 restart
+#Otherwise try something dynamic, for example:
+#<?php echo date('Y-m-d H:i:s'); ?>
+#Or show your PHP info:
+
+sudo echo '<?php phpinfo(); ?>' > /var/www/html/phpinfo.php
+}
+
+MYSQL(){
+#Install MySQL
+
+#MySQL (pronounced My Sequel or My S-Q-L) is a popular database engine. Like PHP, its overwhelming presence on web servers enhanced its popularity. This is why projects like WordPress use it, and why those projects are so popular. Install the MySQL Server and PHP-MySQL packages by entering the following command into the terminal:
+sudo apt-get install mysql-server php5-mysql -y
+
+#When installing MySQL you will be asked for a root password. You’ll need to remember this to allow your website to access the database.
+#Now restart Apache:
+sudo service apache2 restart
+}
+
+WORDPRESS(){
+#APACHE
+#PHP
+#MYSQL
+
+#Download WordPress
+
+#You can download WordPress from wordpress.org using the wget command. Helpfully, a copy of the latest version of WordPress is always available at wordpress.org/latest.tar.gz and wordpress.org/latest.zip, so you can grab the latest version without having to look it up on the website. At the time of writing, this is version 4.5.
+#Navigate to /var/www/html/, and download WordPress to this location. You’ll need to empty the folder first (be sure to check you’re not deleting files you need before running rm); change the ownership of this folder to the pi user too.
+
+cd /var/www/html/
+#sudo rm *
+sudo wget http://wordpress.org/latest.tar.gz
+#Now extract the tarball, move the contents of the folder it extracted (wordpress) to the current directory and remove the (now empty) folder and the tarball to tidy up:
+sudo tar xzf latest.tar.gz
+sudo mv wordpress/* .
+sudo rm -rf wordpress latest.tar.gz
+#Running the ls or (tree -L 1) command here will show you the contents of a WordPress project:
+#.
+#├── index.php
+#├── license.txt
+#├── readme.html
+#├── wp-activate.php
+#├── wp-admin
+#├── wp-blog-header.php
+#├── wp-comments-post.php
+#├── wp-config-sample.php
+#├── wp-content
+#├── wp-cron.php
+#├── wp-includes
+#├── wp-links-opml.php
+#├── wp-load.php
+#├── wp-login.php
+#├── wp-mail.php
+#├── wp-settings.php
+#├── wp-signup.php
+#├── wp-trackback.php
+#└── xmlrpc.php
+#This is the source of a default WordPress installation. The files you edit to customise your installation belong in the wp-content folder.
+
+#You should now change the ownership of these files to the Apache user:
+sudo chown -R www-data: .
+
+#Set up your WordPress Database
+
+#To get your WordPress site set up, you need a database. Run the mysql command in the terminal and provide your login credentials (e.g. username root, password password):
+
+#mysql -uroot -ppassword
+#Here I have provided my password (the word password) on the command line; there is no space between -p and your password.
+
+#Alternatively you can simply supply an empty -p flag and wait to be asked for a password:
+
+mysql -uroot -p
+#Now you will be prompted to enter the root user password you created earlier.
+
+#Once you’re connected to MySQL, you can create the database your WordPress installation will use:
+
+#mysql> create database wordpress;
+#Note the semi-colon ending the statement. On success you should see the following message:
+
+#Query OK, 1 row affected (0.00 sec)
+#Exit out of the MySQL prompt with Ctrl + D.
+echo "wordpress setup completed. if all went well it should be running at: "
+hostname -I
+}
+
 UPGR8
+
 #RETROPIE
 #RETROPIESETUP
 #AWSMRETRPIBGM
@@ -560,7 +781,12 @@ UPGR8
 #FFMPEG
 #ENABLEFFMPEGRETROPIE
 #XRDP
-MPG123
+#MPG123
+#NGINX
+#APACHE
+#PHP
+#MYSQL
+#WORDPRESS
 
 #choice=$(whiptail --title "Check list example" --separate-output --checklist \
 #"Choose what you would like to install" 20 78 4 \
