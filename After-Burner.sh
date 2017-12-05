@@ -807,9 +807,10 @@ UPGR8
 
 }
 ### Instaling ends here
+### Installing games
 INSTALLGAMES(){
 echo "installing games"
-Games:
+#Games:
 #Battle For Wesnoth - An overhead-view combat game, where you recruit and fight an army. Can easily download add-ons for it, campaigns to play included *apt-get*
 $INSTLL wesnoth
 #Micropolis - A tiny city management simulator *apt-get*
@@ -983,6 +984,184 @@ $INSTLL pipenightdreams
 #Webfoot Games have also ported some of their games to the Pi - check them out here: viewtopic.php?f=78&t=51794&p=908656#p902515
 #Some old Windows/PC games can be played on the Raspberry Pi 3 with help from the Eltechs ExaGear Desktop, such as the original Fallout, Arcanum, and Disciples II.
 }
+### installing ends here
+REMOVEGAMES(){
+echo "removing games"
+#Games:
+#Battle For Wesnoth - An overhead-view combat game, where you recruit and fight an army. Can easily download add-ons for it, campaigns to play included *apt-get*
+$INSTLL wesnoth
+#Micropolis - A tiny city management simulator *apt-get*
+$INSTLL micropolis
+#Widelands - A game similar to The Settlers, with great animations and a speed-up function *apt-get*
+$INSTLL widelands
+#FreeCraft *apt-get*
+$INSTLL freecraft
+#Funny Boat *apt-get*
+$INSTLL funnyboat
+#Which-Way-Is-Up? - A 2d platform game, but with a twist (literally!) *apt-get*
+#Openrena - A 3D multiplayer shooter, runs well on the Pi. Can be played through Quake3,instructions pending. *pistore* WARNING! CONTAINS GORE AND STRONG LANGUAGE!
+#LittleCrane - An enjoyable 3d crane-game, where you have to pilot a truck/crane, and complete a set of levels *pistore*
+#Freeciv - An advanced overhead game, inspired by the history of human civilisation*apt-get* *pistore*
+#Flare - An overhead RPG game engine (with a game) *apt-get*
+#KETM (Kill everything that moves) - A Space-Invaders type of game *apt-get*
+#Blob Wars: Metal Blob Solid - A 2D shooter, where you play as a little yellow blob. [WARNING! CONTAINS BLOOD AND GORE WHICH CAN BE DISABLED] *apt-get*
+#Flight Of The Amazon Queen - Rescue an Amazonian princess from a suspicious lederhosen company. Uses Scumnvm. Retro 90's style. *apt-get* [ALSO INSTALLS ScummVM]
+#Beneath A Steel Sky - Same as Flight of the Amazon Queen (ABOVE), but set in a bleak post-apocalyptic version of the future, and a different story line.*apt-get* [ALSO INSTALLS ScummVM]
+#Abuse - A Great 2D shooter set in a mutated prison. Also contains abuse-mod-packs with install. *apt-get*
+#Battle Tanks - A barely runnable (AKA slow) birds-eye-view tanks shoot-'em-up *apt-get*
+#20,00 Light Years Into Space - Create a steam network to power a city, upgrading it and reparing damages taht will occur over time [Uses PyGame] *apt-get*
+#Minecraft Pi Edition - Minecraft Pocket Edition, ported to the Pi with lots of limitations. Great all the same. *other*[CAN BE DOWNLOADED FROM http://pi.minecraft.net/ ]
+#XJump - A jumping game with exxaderated phisics. Takes a bit of time to load. *apt-get*
+#BlockOut 2 - Description pending... *apt-get*
+#Pingus - A Lemmings clone that runs close to perfectly on the Pi (sometimes won't shut down properly), can make your own levels. *apt-get*
+#SuperTux - A Super Mario inspired run-and-jump game, where you can make your own levels. (sometimes wont shut down properly) *apt-get*
+#Quake 3 *other* (http://www.raspberrypi.org/phpBB3/viewt ... 78&t=18853) WARNING! CONTAINS GORE AND STRONG LANGUAGE!
+#OpenTTD - simulator based upon Transport Tycoon Deluxe *apt-get*
+#Simutrans - transport simulator - only runs OK at a low resolution *apt-get*
+#PyDance - rhythm game (like Stepmania) *apt-get*
+#Angry Drunken Dwarves - multiplayer arcade puzzle game *apt-get*
+#nethack - Dungeon Crawler Game *apt-get*
+#RailWorld - An overhead Java RailWay simulation game. Runs really slowly on the Pi. *other* (http://www.kolls.net/rwwiki/index.php?title=Rail_World , download it at the downloads page, BUT YOU MUST DOWNLOAD MAPS in the maps section to go with it. You can make your own maps, but this is quite hard)
+#Monsterz - A game similar to 'GemGem' *apt-get*
+$INSTLL monsterz
+#PrBoom - A clone of the legendary shooter 'Doom' *apt-get*
+$INSTLL prboom
+#PyORPG - A great little RPG (Role Playing Game), In its first release, so there is not much currently in-game. Runs OK. *other* (http://www.raspberrypi.org/phpBB3/viewt ... 78&t=52555)
+#Lunar Panda - Description Pending. All that I know is that it is about pandas. *pistore*
+#Storm in a teacup - Description Pending. Please submit *pistore* *PAY* £1.99
+#sopwith - A original retro 2d plane dogfight game, complete with blocky grahpics! *apt-get*
+$INSTLL sopwith
+#feeding frenzy - A 2d platform game where the aim is to capture the fruits *apt-get*
+#freedink - A great isometric zelda-like game, with a big map and the ability to get add-ons *apt-get*
+$INSTLL freedlink
+#lincity - An overhead 3d-like city management game, with lots of functions and child-friendly interface *apt-get*
+#triplane - A great 2d dogfight game, with multiplayer mode and singleplayer too *apt-get*
+#Descent I & II - Requires you to buy the original Descent game files or use the shareware data. *other* (see here for more info, or a topic here)
+#GNU Robbo - A port of the game by wdehoog *other* (see here)
+#Jedi Outcast - *other* (see here)
+#Jedi Academy - *other* (see here)
+#3D Chess - Play chess across 3 axises *apt-get*
+#4digit - Classic "find the pattern" game *apt-get*
+#ACM - 3D flight simulator *apt-get*
+#Airstrike - Fun 1 or 2 player 2D aerial combat game *apt-get*
+#Allegro Demo - 2D space shooter, demonstrates the Allegro library *apt-get*
+#Atom-4 - Game where you build atoms *apt-get*
+$INSTLL atom4
+#Atomic Tanks - Tank fighting game *apt-get*
+#Battleball - 3D Tank game where you push around a ball *apt-get*
+#Desmume - Emulator for NDS (emulation not tested, the program only runs in X11) *apt-get*
+#Freesweep - Console based minesweeper *apt-get*
+#Galaga - Game that pays homage to the original arcade classic *apt-get*
+$INSTLL galaga
+#Galaga:Hyperspace - Sequel to Galaga on rpi *apt-get*
+#GNU Shogi - (no comment, I couldn't figure out how to play this one) *apt-get*
+#Hexxagon - Port of the classic marble capture game *apt-get*
+$INSTLL hexxagon
+#Mancala - Plays like the board game, but uses numbers instead of marbles *apt-get*
+#Overgod - Asteroids clone with impressive graphics *apt-get*
+$INSTLL overgod
+#pipenightdreams - Use pipes to flow the goo into the exit pipe *apt-get*
+$INSTLL pipenightdreams
+#Xye - (no comment, took to long to load :/) *apt-get*
+#qonk - (no comment, couldn't figure out how to play) *apt-get*
+#Rafkill - 2D shooter with some 3D graphics *apt-get*
+#RealTimeBattle (no comment, couldn't figure out how to play) *apt-get*
+#Snake4 - Snake clone, but with several added features *apt-get*
+
+#Space Aryarya - psuedo-3D shooter, similar to space invaders *apt-get*
+
+#SpaceZero - 2D space exploration game *apt-get*
+#Spout - Unique retro 2D flying game with interesting pixel physics *apt-get*
+#Stax - Puzzle game where you must eliminate all colored asterisks before your opponent *apt-get*
+#tagua - Chess engine with built-in console *apt-get*
+#Teddy - Displays a teddy bear on your desktop *apt-get*
+#Tetzle - Tile puzzle game using images on your rpi *apt-get*
+#TINT - Console-based tetris clone *apt-get*
+#vavoom - Doom launcher, must have Doom or a supported variant installed along side it *apt-get*
+#Wing - 2D shooting game with confusing controls *apt-get*
+#wordplay - no comment, must start from console *apt-get*
+#wmpuzzle - A tile puzzle with Tux *apt-get*
+#Xabacus - An abacus game run in X11 *apt-get*
+#Xball - Ball simulation window with modifiable settings *apt-get*
+#XBill - Kill all the nerds before they put viruses on the computers! *apt-get*
+#XBlast-TNT - Bomberman clone with impressive graphics *apt-get*
+#Xboing - Breakout clone (couldn't figure out how to play) *apt-get*
+#XBomb - Minesweeper clone that can use squares, triangles, and hexagons *apt-get*
+#XBubble - Bubble shooting game with impressive graphics *apt-get*
+#xchain - 2 player game (couldn't figure out how to play) *apt-get*
+#xdemineur - Very close clone of minesweeper on Windows (looks the same) *apt-get*
+#XGammon - Backgammon for X11 *apt-get*
+#XInvaders 3D - Impressive 3D-vector Invaders clone *apt-get*
+#Xjig - Jigsaw puzzle solver *apt-get*
+#xmahjongg - The classic orient game for rpi *apt-get*
+#XJump - Infinite tower climbing game for rpi *apt-get*
+#xmpuzzles - Installing this package installs a variety of puzzles that all run in X11 *apt-get*
+#Xmille - (couldn't figure out how to play) *apt-get*
+#Xmountains - Generates a 3D landscape of land and sea *apt-get*
+#Xonix - Jezzball clone *apt-get*
+#Xpatience2 - Solitaire collection (*apt-get*
+#XScavenger - (couldn't figure out how to play) *apt-get*
+#XScorch - Tank game that plays like Hedge Wars *apt-get*
+#XShogi - (couldn't figure out how to play) *apt-get*
+#XSkat - (couldn't figure out how to play) *apt-get*
+#Xsokoban - Block-pushing puzzle game *apt-get*
+#XSoldier - 2D space shooter *apt-get*
+#X Solitaire - Solitaire in X11 *apt-get*
+#Xtron - Tron clone for X11 *apt-get*
+#XTux - (couldn't start a new game) *apt-get*
+#Xvier - 4-in-a-row game for X11 *apt-get*
+#XWelltris - Interesting Psuedo-3D Tetris clone *apt-get*
+#yahtzeesharp - Yahtzee for rpi *apt-get*
+#yics - (couldn't figure out how to play, must start from console) *apt-get*
+#Zatacka - (couldn't start a new game, probably broken) *apt-get*
+#(end of TheGreatNi's list)
+#Xmille - A card game (see here) *apt-get* (I believe)
+#Sonic Robo Blast 2 (thanks kimbrasil) - 3D sonic game (other) (see http://www.raspberrypi.org/forums/viewt ... 00#p567447)
+#PiFox - A Bare-Metal 3D dodgem-style clone of an old SNES game (StarFox) - *other* (http://www.raspberrypi.org/pifox-bare-m ... -star-fox/)
+#Darkplaces quake - A moded quake engine for running several standalone games & quake mods - *other* (http://www.raspberrypi.org/forums/viewt ... 78&t=72301)
+#Doukutsu Monogatari (AKA Cave Story) - A retro-styled 2D shooter, with a creative storyline and fun gameplay (will reboot, as it runs outside of X) - *pistore*
+#OpenTyrian - A port of the classic top-down aerial shooter - *other* (http://dosonthepi.blogspot.co.uk/2015/0 ... yrian.html) (thanks snowballEarth)
+#Overlord - a remake of a classic game for RiscOS *other* (viewtopic.php?f=78&t=109142) 
+#Pax Brittanica - a one-button RTS port to the Pi using Java and libgdx - *other * (viewtopic.php?f=78&t=118349)
+#LPairs - a memory game - *other* (Note: requires compiling: http://lgames.sourceforge.net/index.php?&project=LPairs)
+#The abbey of crime extensum (La abadía del crimen extensum) - An isometric Java adventure game - *other* (http://www.abadiadelcrimenextensum.com/)
+#Vorton - A remake of the classic highway encounter - *other* (Note: this build was compiled for the Raspberry Pi 2 upwards: https://app.box.com/s/a7ja91zvf83i3xvrotnpoqlz9o3e9702)
+#Mayhem - the classic Amiga game, ported to the Pi - *other* (http://www.stuffaboutcode.com/2016/04/m ... ed-to.html)
+#Hurrican - A Pi port of a side-scrolling shooter - *other* (http://misapuntesde.com/post.php?id=242)
+#A bunch of cool Python puzzles - *other* (http://pzl.org.uk/Downloads.html#Raspberry_Pi)
+#Arcanum, Disciples II and Fallout - *other* (https://eltechs.com/gaming-beyond-retropie/)
+#Minetest - an open-source Minecraft implementation, extendable in Lua - *other* (http://www.minetest.net/)
+#AeonAlpha - a 3D multiplayer space shooter - *other* (viewtopic.php?f=78&t=151544)
+#Sqrxz series - a retro-style side-scrolling jump-and-stomp game - *other* (http://www.sqrxz.de/)
+#Fruit'Y - A game inspired by the classic Gem'X - *other* (http://www.retroguru.com/fruity/)
+#Xump - a multi-platform puzzler - *other* (http://www.retroguru.com/xump/)
+#PySOL Fan Club - a card game with 1000 games, along with tutorials for each game - *apt-get* (install both pysolfc and pysolfc-cardsets)
+#pzl - a set of classic, free games, consisting of Sudoku, Kakuro, Sokoban, Minesweeper, Futoshiki, Boggle, Codeword, Sumpuzzle, Jigsaw, Scrabbler, Akari, Bridges, Shikaku, Suguru and Hidato - *other* (see here)
+
+#Emulators:
+#STELLA - Atari VCS/2600 Emulator *apt-get* (apparently this no longer works under Jessie)
+#MEDNAFEN - Multiple System Emulator for the following systems: *apt-get* 
+#•Atari Lynx
+#•Neo Geo Pocket (Color)
+#•WonderSwan
+#•GameBoy (Color)
+#•GameBoy Advance
+#•Nintendo Entertainment System
+#•Super Nintendo Entertainment System/Super Famicom
+#•Virtual Boy
+#•PC Engine/TurboGrafx 16 (CD)
+#•SuperGrafx
+#•PC-FX
+#•Sega Game Gear
+#FUSE - ZX Spectrum emulator - *apt-get*
+#Eltechs ExaGear Desktop - A PC emulator for the Raspberry Pi 3, which allows you to play old games such as the original Fallout, Arcanum, and Disciples II - *other* (see here)
+
+#Others:
+#The YoYo games community has also managed to make a few Raspberry Pi ports, namely for They Need To Be Fed, Super Crate Box, and Maldita Castilla - see here: http://yoyogames.com/pi.
+#Webfoot Games have also ported some of their games to the Pi - check them out here: viewtopic.php?f=78&t=51794&p=908656#p902515
+#Some old Windows/PC games can be played on the Raspberry Pi 3 with help from the Eltechs ExaGear Desktop, such as the original Fallout, Arcanum, and Disciples II.
+}
+
 ### Remove Bloatware starts here
 REMBLOATWARE(){ 
 echo "removing bloatware" | $OUTPUT
