@@ -1039,7 +1039,7 @@ whiptail --title "Menu example" --menu "Choose an option" 25 78 16 \
 "REMBLOATWARE" "Remove selection of bloatware." \
 "EXIT" "Exit to cli."
 }
-INSTALLGAMES
+
 MENU(){
 CONFIG ### config gets set
 # If you cannot understand this, read Bash_Shell_Scripting#if_statements again.
@@ -1049,6 +1049,7 @@ if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) 
     
     #TESTING
     INSTALLTOOLS
+    INSTALLGAMES
     #REMBLOATWARE
     #CLNUP
     OKDONE
