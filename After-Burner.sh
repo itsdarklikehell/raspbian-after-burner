@@ -742,6 +742,14 @@ echo "wordpress setup completed. if all went well it should be running at: "
 hostname -I
 }
 
+QUASSEL-CORE(){
+$INSTLL quassel-core
+}
+
+QUASSEL-CIENT(){
+$INSTLL quassel-client
+}
+
 UPGR8
 
 #RETROPIE
@@ -787,6 +795,8 @@ UPGR8
 #PHP
 #MYSQL
 #WORDPRESS
+QUASSEL-CORE
+QUASSEL-CLIENT
 
 #choice=$(whiptail --title "Check list example" --separate-output --checklist \
 #"Choose what you would like to install" 20 78 4 \
@@ -1221,7 +1231,7 @@ whiptail --title "Menu example" --menu "Choose an option" 25 78 16 \
 
 MENU(){
 CONFIG ### config gets set
-# If you cannot understand this, read Bash_Shell_Scripting#if_statements again.
+# If you cannot understand this, read Bash_Shell_Scripting if_statements again.
 whiptail --title "CAUTION!" --msgbox "Run this script with CAUTION! I am in no way resposible for your actions. read the readme.ml and the script first!" 8 78
 if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) then
     echo "User selected Yes, exit status was $?."
@@ -1230,7 +1240,7 @@ if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) 
     INSTALLTOOLS
     INSTALLGAMES
     #REMBLOATWARE
-    #CLNUP
+    CLNUP
     OKDONE
 else
     echo "User selected No, exit status was $?."
