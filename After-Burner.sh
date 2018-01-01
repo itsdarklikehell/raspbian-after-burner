@@ -797,7 +797,7 @@ echo "mitmf installed" | $OUTPUT
 }
 
 P2PADB(){
-$INSTLL android-tools-*
+$INSTLL busybox android-tools-*
 cd
 git clone https://github.com/kosborn/p2p-adb
 cd p2p-adb
