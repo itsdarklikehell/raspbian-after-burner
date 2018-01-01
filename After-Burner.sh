@@ -800,7 +800,7 @@ P2PADB(){
 $INSTLL
 cd
 git clone https://github.com/kosborn/p2p-adb
-cd p2padb
+cd p2p-adb
 su -c ./run.sh
 }
 
