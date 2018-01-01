@@ -17,7 +17,9 @@ OUTPUT="flite"
 
 #if (whiptail --title "Voice or nah?" --yesno "Do you want to use voice output or echo" 8 78)
 #then OUTPUT="flite" && echo "User selected Yes, exit status was $?." 
-#else OUTPUT="echo" && echo "User selected No, exit status was $?." fi
+#else OUTPUT="echo" && echo "User selected No, exit status was $?." 
+#fi
+
 CLNUP(){
 echo "cleaning apt" | $OUTPUT && sudo apt-get clean && sudo apt-get autoremove && echo "apt is now cleaned" | $OUTPUT
 }
@@ -134,96 +136,6 @@ $INSTLL emby-server
 #Getting ffmpeg: https://www.johnvansickle.com/ffmpeg/ openSUSE installation: 1. Install an openSUSE image for your corresponding board: Full Index: https://en.opensuse.org/Portal:ARM RPI2: https://en.opensuse.org/HCL:Raspberry_Pi2 RPI3: https://en.opensuse.org/HCL:Raspberry_Pi3 2. Add emby repo. https://software.opensuse.org/download.html?project=home%3Aemby&package=emby-server 3. Install. sudo zypper in emby-server 
 }
 
-METASPLOIT(){
-echo "installing metasploit" | $OUTPUT
-# QUICK AND DIRTY (NIGHTLY)
-#curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
-#  chmod 755 msfinstall && \
-#  ./msfinstall
-
-# NORMAL MANUALINSTALLATION
-# We start by adding the Oracle Java Package source
-$INSTLL software-properties-common
-sudo add-apt-repository -y ppa:webupd8team/java
-#Once added we can install the latest version
-UPGR8
-$INSTLL oracle-java8-installer
-#Now that we know that we are running an updated system we can install all the dependent packages that are needed by Metasploit Framework:
-$INSTLL build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev zenmap nmap
-#Installing Ruby using RVM:
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-#curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
-curl -sSL https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
-#curl -sSL https://get.rvm.io | bash -s stable --ruby
-source ~/.rvm/scripts/rvm
-echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
-#source ~/.bashrc
-source ~/.rvm/scripts/rvm
-RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
-rvm install $RUBYVERSION
-rvm use $RUBYVERSION --default
-ruby -v
-
-# Installing Ruby using rbenv:
-#cd ~
-#git clone git://github.com/sstephenson/rbenv.git .rbenv
-#echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-#echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-#exec $SHELL
-
-#git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-#echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-
-# sudo plugin so we can run Metasploit as root with "rbenv sudo msfconsole" 
-#git clone git://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sudo
-
-#exec $SHELL
-
-#RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
-#rbenv install $RUBYVERSION
-#rbenv global $RUBYVERSION
-#ruby -v
-
-# We will download the latest version of Metasploit Framework via Git so we can use msfupdate to keep it updated:
-
-cd /opt
-sudo git clone https://github.com/rapid7/metasploit-framework.git
-sudo chown -R `whoami` /opt/metasploit-framework
-cd metasploit-framework
-
-# If using RVM set the default gem set that is create when you navigate in to the folder
-rvm --default use ruby-${RUBYVERSION}@metasploit-framework
-gem install bundler
-bundle install
-sudo bash -c 'for MSF in $(ls msf*); do ln -s /opt/metasploit-framework/$MSF /usr/local/bin/$MSF;done'
-touch /tmp/database.yml
-echo "production:" > /tmp/database.yml
-echo " adapter: postgresql" >> /tmp/database.yml
-echo " database: " >> /tmp/database.yml
-echo " username: " >> /tmp/database.yml
-echo " password: " >> /tmp/database.yml
-echo " host: 127.0.0.1" >> /tmp/database.yml
-echo " port: 5432" >> /tmp/database.yml
-echo " pool: 75" >> /tmp/database.yml
-echo " timeout: 5" >> /tmp/database.yml
-echo "now edit the database settings and save please" | $OUTPUT 
-nano /tmp/database.yml
-cp /tmp/database.yml /opt/metasploit-framework/config/database.yml
-sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
-source /etc/profile
-echo "metasploit should now be installed. you should start the msfconsole to ser if it is able to connect to the database and start creating the tables." | $OUTPUT
-}
-
-ARMITAGE(){
-curl -# -o /tmp/armitage.tgz http://www.fastandeasyhacking.com/download/armitage150813.tgz
-sudo tar -xvzf /tmp/armitage.tgz -C /opt 
-sudo ln -s /opt/armitage/armitage /usr/local/bin/armitage
-sudo ln -s /opt/armitage/teamserver /usr/local/bin/teamserver
-sudo sh -c "echo java -jar /opt/armitage/armitage.jar \$\* > /opt/armitage/armitage"
-sudo perl -pi -e 's/armitage.jar/\/opt\/armitage\/armitage.jar/g' /opt/armitage/teamserver
-sudo git clone https://github.com/rsmudge/cortana-scripts /opt/armitage/cortana-scripts/
-}
-
 BLATHER(){
 $INSTLL espeak flite
 cd
@@ -231,139 +143,6 @@ git clone https://github.com/itsdarklikehell/blather/
 cd blather
 chmod +x Blather-Installer
 ./Blather-Installer
-}
-
-FLUXION(){
-cd
-git clone --recursive https://github.com/FluxionNetwork/fluxion.git # Download the latest revision
-cd fluxion # Switch to tool's directory
-sudo ./fluxion.sh # Run fluxion (missing dependencies will be auto-installed)
-}
-
-HYDRA(){
-$INSTLL hydra hydra-gtk
-}
-
-JTRJOHNNY(){
-cd
-$INSTLL g++ git qtbase5-dev john
-git clone https://github.com/shinnok/johnny.git 
-cd johnny
-git checkout v2.2 # switch to the desired version
-export QT_SELECT=qt5
-qmake
-make -j$(nproc)
-#./johnny
-}
-
-SQLMAP(){
-echo "installing sqlmap" | $OUTPUT
-cd
-sudo git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap
-cd /opt/sqlmap
-sudo ln -s /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
-echo "sqlmap installed" | $OUTPUT
-}
-
-WIRESHARK(){
-echo "installing wireshark" | $OUTPUT
-$INSTLL wireshark tshark
-sudo gpasswd -a $USER wireshark
-echo "wireshark install" | $OUTPUT
-}
-
-CAIN(){
-echo "installing cain" | $OUTPUT
-$INSTLL cain cain-solvers cain-examples
-echo "cain and able installed" | $OUTPUT
-}
-
-NIKTO(){
-echo "installng nikto" | $OUTPUT
-$INSTLL nikto
-echo "nikto installed" | $OUTPUT
-}
-
-ETHERAPE(){
-echo "installing etherape" | $OUTPUT
-$INSTLL etherape
-echo "etherape installed" | $OUTPUT
-}
-
-ETTERCAP(){
-$INSTLL ettercap-text-only 
-#$INSTLL ettercap-graphical
-}
-
-KISMET(){
-$INSTLL kismet
-}
-
-NETCAT(){
-$INSTLL netcat
-}
-
-NGREP(){
-$INSTLL ngrep
-}
-
-NTOP(){
-$INSTLL ntop
-}
-
-P0F(){
-$INSTLL p0f
-}
-
-AIRCRACK(){
-$INSTLL aircrack-ng
-}
-
-REAVER(){
-$INSTLL reaver
-}
-
-WORDLISTS(){
-cd
-git clone https://github.com/danielmiessler/SecLists/tree/master/Passwords wordlists
-}
-
-PIXIEWPS(){
-$INSTLL build-essential
-cd
-git clone https://github.com/wiire/pixiewps
-cd pixiewps*/
-cd src/
-make
-sudo make install
-}
-
-WIFITE(){
-wget https://raw.github.com/derv82/wifite/master/wifite.py
-chmod +x wifite.py
-#./wifite.py
-}
-
-FERN(){
-cd
-wget http://www.fern-pro.com/download
-sudo dpkg -i Fern*.deb
-}
-
-CRUNCH(){
-$INSTLL crunch
-}
-
-WASH(){
-$INSTLL wash
-}
-
-SETOOLKIT(){
-$INSTLL git apache2 python-requests libapache2-mod-php python-pymssql build-essential python-pexpect python-pefile python-crypto python-openssl
-cd
-git clone https://github.com/trustedsec/social-engineer-toolkit/ set/
-cd set
-sudo python setup.py install
 }
 
 PIVPN(){
@@ -386,26 +165,6 @@ sudo bash openvpn-install.sh
 
 SSHFS(){
 $INSTLL sshfs
-}
-
-NMAP(){
-$INSTLL nmap zenmap
-}
-
-MITMF(){
-echo "installing mitmf" | $OUTPUT
-$INSTLL python-dev python-setuptools libpcap0.8-dev libnetfilter-queue-dev libssl-dev libjpeg-dev libxml2-dev libxslt1-dev libcapstone3 libcapstone-dev libffi-dev file
-
-sudo pip install virtualenvwrapper
-echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
-source ~/.bashrc
-source /usr/bin/virtualenvwrapper.sh
-mkvirtualenv MITMf -p /usr/bin/python2.7
-git clone https://github.com/byt3bl33d3r/MITMf
-cd MITMf && git submodule init && git submodule update --recursive
-sudo pip install -r requirements.txt
-python mitmf.py --help
-echo "mitmf installed" | $OUTPUT
 }
 
 FFMPEG(){
@@ -757,35 +516,10 @@ UPGR8
 #AWSMRETRPIBGM
 #CRE8AP
 #EMBY
-#METASPLOIT
-#ARMITAGE
 #BLATHER
-#FLUXION
-#HYDRA
-#WIRESHARK
-#SQLMAP
-#CAIN
-#NIKTO
-#ETHERAPE
-#ETTERCAP
-#KISMET
-#NETCAT
-#NGREP
-#NTOP
-#AIRCRACK
-#WORDLISTS
-#REAVER
-#PIXIEWPS
-#WIFITE
-#FERN  ## NEEDS FIXING
-#CRUNCH
-#WASH ## NEEDS FIXING
-#SETOOLKIT
 #PIVPN ## NEEDDS FIXING (openvpn conflicts)
 #OPENVPN ## NEEDS FIXING (pivpn conflicts)
 #SSHFS
-#NMAP
-#MITMF
 #FFMPEG
 #ENABLEFFMPEGRETROPIE
 #XRDP
@@ -817,6 +551,286 @@ QUASSEL-CLIENT
 
 }
 ### Instaling ends here
+INSTALLHACKTOOLS(){
+
+METASPLOIT(){
+echo "installing metasploit" | $OUTPUT
+# QUICK AND DIRTY (NIGHTLY)
+#curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
+#  chmod 755 msfinstall && \
+#  ./msfinstall
+
+# NORMAL MANUALINSTALLATION
+# We start by adding the Oracle Java Package source
+$INSTLL software-properties-common
+sudo add-apt-repository -y ppa:webupd8team/java
+#Once added we can install the latest version
+UPGR8
+$INSTLL oracle-java8-installer
+#Now that we know that we are running an updated system we can install all the dependent packages that are needed by Metasploit Framework:
+$INSTLL build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5 libsqlite3-dev libpcap-dev git-core autoconf postgresql pgadmin3 curl zlib1g-dev libxml2-dev libxslt1-dev vncviewer libyaml-dev curl zlib1g-dev zenmap nmap
+#Installing Ruby using RVM:
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+#curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+curl -sSL https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
+#curl -sSL https://get.rvm.io | bash -s stable --ruby
+source ~/.rvm/scripts/rvm
+echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
+#source ~/.bashrc
+source ~/.rvm/scripts/rvm
+RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+rvm install $RUBYVERSION
+rvm use $RUBYVERSION --default
+ruby -v
+
+# Installing Ruby using rbenv:
+#cd ~
+#git clone git://github.com/sstephenson/rbenv.git .rbenv
+#echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+#echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+#exec $SHELL
+
+#git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+#echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+
+# sudo plugin so we can run Metasploit as root with "rbenv sudo msfconsole" 
+#git clone git://github.com/dcarley/rbenv-sudo.git ~/.rbenv/plugins/rbenv-sudo
+
+#exec $SHELL
+
+#RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+#rbenv install $RUBYVERSION
+#rbenv global $RUBYVERSION
+#ruby -v
+
+# We will download the latest version of Metasploit Framework via Git so we can use msfupdate to keep it updated:
+
+cd /opt
+sudo git clone https://github.com/rapid7/metasploit-framework.git
+sudo chown -R `whoami` /opt/metasploit-framework
+cd metasploit-framework
+
+# If using RVM set the default gem set that is create when you navigate in to the folder
+rvm --default use ruby-${RUBYVERSION}@metasploit-framework
+gem install bundler
+bundle install
+sudo bash -c 'for MSF in $(ls msf*); do ln -s /opt/metasploit-framework/$MSF /usr/local/bin/$MSF;done'
+touch /tmp/database.yml
+echo "production:" > /tmp/database.yml
+echo " adapter: postgresql" >> /tmp/database.yml
+echo " database: " >> /tmp/database.yml
+echo " username: " >> /tmp/database.yml
+echo " password: " >> /tmp/database.yml
+echo " host: 127.0.0.1" >> /tmp/database.yml
+echo " port: 5432" >> /tmp/database.yml
+echo " pool: 75" >> /tmp/database.yml
+echo " timeout: 5" >> /tmp/database.yml
+echo "now edit the database settings and save please" | $OUTPUT 
+nano /tmp/database.yml
+cp /tmp/database.yml /opt/metasploit-framework/config/database.yml
+sudo sh -c "echo export MSF_DATABASE_CONFIG=/opt/metasploit-framework/config/database.yml >> /etc/profile"
+source /etc/profile
+echo "metasploit should now be installed. you should start the msfconsole to ser if it is able to connect to the database and start creating the tables." | $OUTPUT
+}
+
+ARMITAGE(){
+curl -# -o /tmp/armitage.tgz http://www.fastandeasyhacking.com/download/armitage150813.tgz
+sudo tar -xvzf /tmp/armitage.tgz -C /opt 
+sudo ln -s /opt/armitage/armitage /usr/local/bin/armitage
+sudo ln -s /opt/armitage/teamserver /usr/local/bin/teamserver
+sudo sh -c "echo java -jar /opt/armitage/armitage.jar \$\* > /opt/armitage/armitage"
+sudo perl -pi -e 's/armitage.jar/\/opt\/armitage\/armitage.jar/g' /opt/armitage/teamserver
+sudo git clone https://github.com/rsmudge/cortana-scripts /opt/armitage/cortana-scripts/
+}
+
+FLUXION(){
+cd
+git clone --recursive https://github.com/FluxionNetwork/fluxion.git # Download the latest revision
+cd fluxion # Switch to tool's directory
+sudo ./fluxion.sh # Run fluxion (missing dependencies will be auto-installed)
+}
+
+HYDRA(){
+$INSTLL hydra hydra-gtk
+}
+
+JTRJOHNNY(){
+cd
+$INSTLL g++ git qtbase5-dev john
+git clone https://github.com/shinnok/johnny.git 
+cd johnny
+git checkout v2.2 # switch to the desired version
+export QT_SELECT=qt5
+qmake
+make -j$(nproc)
+#./johnny
+}
+
+SQLMAP(){
+echo "installing sqlmap" | $OUTPUT
+cd
+sudo git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git /opt/sqlmap
+cd /opt/sqlmap
+sudo ln -s /opt/sqlmap/sqlmap.py /usr/local/bin/sqlmap
+echo "sqlmap installed" | $OUTPUT
+}
+
+WIRESHARK(){
+echo "installing wireshark" | $OUTPUT
+$INSTLL wireshark tshark
+sudo gpasswd -a $USER wireshark
+echo "wireshark install" | $OUTPUT
+}
+
+CAIN(){
+echo "installing cain" | $OUTPUT
+$INSTLL cain cain-solvers cain-examples
+echo "cain and able installed" | $OUTPUT
+}
+
+NIKTO(){
+echo "installng nikto" | $OUTPUT
+$INSTLL nikto
+echo "nikto installed" | $OUTPUT
+}
+
+ETHERAPE(){
+echo "installing etherape" | $OUTPUT
+$INSTLL etherape
+echo "etherape installed" | $OUTPUT
+}
+
+ETTERCAP(){
+$INSTLL ettercap-text-only 
+#$INSTLL ettercap-graphical
+}
+
+KISMET(){
+$INSTLL kismet
+}
+
+NETCAT(){
+$INSTLL netcat
+}
+
+NGREP(){
+$INSTLL ngrep
+}
+
+NTOP(){
+$INSTLL ntop
+}
+
+P0F(){
+$INSTLL p0f
+}
+
+AIRCRACK(){
+$INSTLL aircrack-ng
+}
+
+REAVER(){
+$INSTLL reaver
+}
+
+WORDLISTS(){
+cd
+git clone https://github.com/danielmiessler/SecLists/tree/master/Passwords wordlists
+}
+
+PIXIEWPS(){
+$INSTLL build-essential
+cd
+git clone https://github.com/wiire/pixiewps
+cd pixiewps*/
+cd src/
+make
+sudo make install
+}
+
+WIFITE(){
+wget https://raw.github.com/derv82/wifite/master/wifite.py
+chmod +x wifite.py
+#./wifite.py
+}
+
+FERN(){
+cd
+wget http://www.fern-pro.com/download
+sudo dpkg -i Fern*.deb
+}
+
+CRUNCH(){
+$INSTLL crunch
+}
+
+WASH(){
+$INSTLL wash
+}
+
+SETOOLKIT(){
+$INSTLL git apache2 python-requests libapache2-mod-php python-pymssql build-essential python-pexpect python-pefile python-crypto python-openssl
+cd
+git clone https://github.com/trustedsec/social-engineer-toolkit/ set/
+cd set
+sudo python setup.py install
+}
+
+NMAP(){
+$INSTLL nmap zenmap
+}
+
+MITMF(){
+echo "installing mitmf" | $OUTPUT
+$INSTLL python-dev python-setuptools libpcap0.8-dev libnetfilter-queue-dev libssl-dev libjpeg-dev libxml2-dev libxslt1-dev libcapstone3 libcapstone-dev libffi-dev file
+
+sudo pip install virtualenvwrapper
+echo "source /usr/bin/virtualenvwrapper.sh" >> ~/.bashrc
+source ~/.bashrc
+source /usr/bin/virtualenvwrapper.sh
+mkvirtualenv MITMf -p /usr/bin/python2.7
+git clone https://github.com/byt3bl33d3r/MITMf
+cd MITMf && git submodule init && git submodule update --recursive
+sudo pip install -r requirements.txt
+python mitmf.py --help
+echo "mitmf installed" | $OUTPUT
+}
+
+P2PADB(){
+$INSTLL
+git clone https://github.com/kosborn/p2p-adb
+cd p2padb
+su -c ./run.sh
+}
+
+#METASPLOIT
+#ARMITAGE
+#FLUXION
+#HYDRA
+#WIRESHARK
+#SQLMAP
+#CAIN
+#NIKTO
+#ETHERAPE
+#ETTERCAP
+#KISMET
+#NETCAT
+#NGREP
+#NTOP
+#AIRCRACK
+#WORDLISTS
+#REAVER
+#PIXIEWPS
+#WIFITE
+#FERN  ## NEEDS FIXING
+#CRUNCH
+#WASH ## NEEDS FIXING
+#SETOOLKIT
+#NMAP
+#MITMF
+P2PADB
+
+}
 ### Installing games
 INSTALLGAMES(){
 echo "installing games"
@@ -1238,7 +1252,8 @@ if (whiptail --title "Continue?" --yesno "Do you still want to continue?" 8 78) 
     
     #TESTING
     INSTALLTOOLS
-    INSTALLGAMES
+    INSTALLHACKTOOLS
+    #INSTALLGAMES
     #REMBLOATWARE
     CLNUP
     OKDONE
