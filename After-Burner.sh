@@ -800,8 +800,30 @@ P2PADB(){
 $INSTLL busybox android-tools-*
 cd
 git clone https://github.com/kosborn/p2p-adb
-cd p2p-adb
-su -c ./run.sh
+echo 'run: cd p2p-adb && su -c ./run.sh'
+}
+
+NEXUTIL(){
+cd
+$INSTLL raspberrypi-kernel-headers git libgmp3-dev gawk qpdf bison flex make
+
+git clone https://github.com/seemoo-lab/nexmon.git
+cd nexmon
+#Check if /usr/lib/arm-linux-gnueabihf/libisl.so.10 exists, if not, compile it from source:
+cd buildtools/isl-0.10
+./configure
+make
+sudo make install
+sudo ln -s /usr/local/lib/libisl.so /usr/lib/arm-linux-gnueabihf/libisl.so.10
+source setup_env.sh
+cd patches/bcm43430a1/7_45_41_46/nexmon/
+make
+make bakup-firmware
+make install-firmware
+cd
+cd nexmon/utilities/nexutil
+make
+sudo make install
 }
 
 #METASPLOIT
@@ -829,7 +851,8 @@ su -c ./run.sh
 #SETOOLKIT
 #NMAP
 #MITMF
-P2PADB
+#P2PADB
+#nexutil
 
 }
 ### Installing games
