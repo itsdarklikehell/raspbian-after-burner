@@ -798,6 +798,7 @@ echo "mitmf installed" | $OUTPUT
 
 P2PADB(){
 $INSTLL
+cd
 git clone https://github.com/kosborn/p2p-adb
 cd p2padb
 su -c ./run.sh
