@@ -116,6 +116,91 @@ sudo systemctl start create_ap  #	start the hotspot
 sudo systemctl enable create_ap #	set to enable at boot
 }
 
+RASPAP(){
+
+QUICK(){
+echo "Install RaspAP from your RaspberryPi's shell prompt:"
+echo "The installer will complete the steps in the manual installation (below) for you."
+
+echo "After the reboot at the end of the installation the wireless network will be configured as an access point as follows:"
+
+echo "IP address: 10.3.141.1"
+echo "Username: admin"
+echo "Password: secret"
+echo "DHCP range: 10.3.141.50 to 10.3.141.255"
+echo "SSID: raspi-webgui"
+echo "Password: ChangeMe"
+
+wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
+}
+MANUAL(){
+$INSTLL git lighttpd php7.0-cgi hostapd dnsmasq
+sudo lighttpd-enable-mod fastcgi-php
+sudo service lighttpd restart
+echo "Now comes the fun part. For security reasons, the www-data user which lighttpd runs under is not allowed to start or stop daemons, or run commands like ifdown and ifup, all of which we want our page to do. So what I have done is added the www-data user to the sudoers file, but with restrictions on what commands the user can run. Add the following to the end of /etc/sudoers:"
+echo ''
+echo "www-data ALL=(ALL) NOPASSWD:/sbin/ifdown wlan0"
+echo "www-data ALL=(ALL) NOPASSWD:/sbin/ifup wlan0"
+echo "www-data ALL=(ALL) NOPASSWD:/bin/cat /etc/wpa_supplicant/wpa_supplicant.conf"
+echo "www-data ALL=(ALL) NOPASSWD:/bin/cp /tmp/wifidata /etc/wpa_supplicant/wpa_supplicant.conf"
+echo "www-data ALL=(ALL) NOPASSWD:/sbin/wpa_cli scan_results"
+echo "www-data ALL=(ALL) NOPASSWD:/sbin/wpa_cli scan"
+echo "www-data ALL=(ALL) NOPASSWD:/sbin/wpa_cli reconfigure"
+echo "www-data ALL=(ALL) NOPASSWD:/bin/cp /tmp/hostapddata /etc/hostapd/hostapd.conf"
+echo "www-data ALL=(ALL) NOPASSWD:/etc/init.d/hostapd start"
+echo "www-data ALL=(ALL) NOPASSWD:/etc/init.d/hostapd stop"
+echo "www-data ALL=(ALL) NOPASSWD:/etc/init.d/dnsmasq start"
+echo "www-data ALL=(ALL) NOPASSWD:/etc/init.d/dnsmasq stop"
+echo "www-data ALL=(ALL) NOPASSWD:/bin/cp /tmp/dhcpddata /etc/dnsmasq.conf"
+echo "www-data ALL=(ALL) NOPASSWD:/sbin/shutdown -h now"
+echo "www-data ALL=(ALL) NOPASSWD:/sbin/reboot"
+echo "www-data ALL=(ALL) NOPASSWD:/sbin/ip link set wlan0 down"
+echo "www-data ALL=(ALL) NOPASSWD:/sbin/ip link set wlan0 up"
+echo "www-data ALL=(ALL) NOPASSWD:/sbin/ip -s a f label wlan0"
+echo "www-data ALL=(ALL) NOPASSWD:/bin/cp /etc/raspap/networking/dhcpcd.conf /etc/dhcpcd.conf"
+echo "www-data ALL=(ALL) NOPASSWD:/etc/raspap/hostapd/enablelog.sh"
+echo "www-data ALL=(ALL) NOPASSWD:/etc/raspap/hostapd/disablelog.sh"
+
+echo "Once those modifications are done, git clone the files to /var/www/html. Note: for older versions of Raspbian (before Jessie, May 2016) use /var/www instead."
+
+sudo rm -rf /var/www/html
+sudo git clone https://github.com/billz/raspap-webgui /var/www/html
+
+echo "Set the files ownership to www-data user."
+
+sudo chown -R www-data:www-data /var/www/html
+
+echo "Move the RaspAP configuration file to the correct location"
+
+sudo mkdir /etc/raspap
+sudo mv /var/www/html/raspap.php /etc/raspap/
+sudo chown -R www-data:www-data /etc/raspap
+
+echo "Move the HostAPD logging scripts to the correct location"
+
+sudo mkdir /etc/raspap/hostapd
+sudo mv /var/www/html/installers/*log.sh /etc/raspap/hostapd 
+echo "Reboot and it should be up and running!"
+
+#sudo reboot
+echo "The default username is 'admin' and the default password is 'secret'."
+}
+OPTIONAL(){
+
+echo "Optional services"
+echo "OpenVPN and TOR are two additional services that run perfectly well on the RPi, and are a nice way to extend the usefulness of your WiFi router. I've started on interfaces to administer these services. Not everyone will need them, so for the moment they are disabled by default. You can enable them by changing these options in index.php:"
+
+echo "// Optional services, set to true to enable."
+echo "define('RASPI_OPENVPN_ENABLED', false );"
+echo "define('RASPI_TORPROXY_ENABLED', false );"
+echo ''
+echo "Please note that these are only UI's for now. If there's enough interest I'll complete the funtionality for these optional admin screens."
+}
+QUICK
+#MANUAL
+OPTIONAL
+}
+
 EMBY(){
 #Recommend install method for armhf/armv7 (Tested rpi2/3 running rasbian): 
 #curl -sSL https://get.docker.com/ | sh docker run -it --rm \ --volume /usr/local/bin:/target \ emby/embyserver:armv7 instl 
@@ -515,6 +600,7 @@ UPGR8
 #RETROPIESETUP
 #AWSMRETRPIBGM
 #CRE8AP
+#RASPAP
 #EMBY
 #BLATHER
 #PIVPN ## NEEDDS FIXING (openvpn conflicts)
