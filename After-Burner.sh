@@ -95,11 +95,11 @@ git clone https://github.com/itsdarklikehell/RetroPie-Bgm
 cd RetroPie-Bgm/
 chmod +x *.sh
 ./install.sh
-#$INSTLL wget python-pygame
+#$INSTLL wget -c python-pygame
 #cd
 #mkdir PyScript
 #cd PyScript
-#wget https://pastebin.com/raw/7E9JiZGQ
+#wget -c https://pastebin.com/raw/7E9JiZGQ
 #cat 7E9JiZGQ > bgm-v103.py
 #sudo nano bgm-v103.py
 #echo "Run 'sudo nano /etc/rc.local'"
@@ -137,7 +137,7 @@ echo "DHCP range: 10.3.141.50 to 10.3.141.255"
 echo "SSID: raspi-webgui"
 echo "Password: ChangeMe"
 
-wget -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
+wget -c -q https://git.io/voEUQ -O /tmp/raspap && bash /tmp/raspap
 }
 MANUAL(){
 $INSTLL git lighttpd php7.0-cgi hostapd dnsmasq
@@ -215,7 +215,7 @@ EMBY(){
 #docker run -it --rm \ --volume /usr/local/bin:/target \ emby/embyserver:aarch64 instl 
 
 #Installing directly on raspbian or other debian directive without docker (armhf/armv7/aarch64): 
-wget -qO - http://download.opensuse.org/repositories/home:emby/xUbuntu_14.04/Release.key | sudo apt-key add -
+wget -c -qO - http://download.opensuse.org/repositories/home:emby/xUbuntu_14.04/Release.key | sudo apt-key add -
 sudo echo "deb http://download.opensuse.org/repositories/home:/emby/xUbuntu_14.04/" > /etc/apt/sources.list.d/emby-server.list
 UPGR8
 $INSTLL emby-server
@@ -247,8 +247,8 @@ git clone https://github.com/Nyr/openvpn-install
 cd openvpn-install
 sudo bash openvpn-install.sh 
 
-#   wget method
-#wget https://git.io/vpn -O openvpn-install.sh && sudo bash openvpn-install.sh
+#   wget -c method
+#wget -c https://git.io/vpn -O openvpn-install.sh && sudo bash openvpn-install.sh
 
 #   curl method
 #curl -sSL https://git.io/vpn | sudo bash
@@ -288,7 +288,7 @@ echo "Compiling and Installing FFmpeg Codecs"
 
 #echo "Libfdk-aac Codec"
 #cd ~/ffmpeg_sources
-#wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master
+#wget -c -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master
 #tar xzvf fdk-aac.tar.gz
 #cd mstorsjo-fdk-aac*
 #autoreconf -fiv
@@ -309,7 +309,7 @@ echo "Compiling and Installing FFmpeg Codecs"
 #Libvpx Codec 
 #echo "Libvpx Codec" 
 #cd ~/ffmpeg_sources 
-#wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2
+#wget -c http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2
 #tar xjvf libvpx-1.5.0.tar.bz2
 #cd libvpx-1.5.0
 #PATH="$HOME/bin:$PATH"
@@ -323,7 +323,7 @@ echo "Compiling and Installing FFmpeg Codecs"
 # FFmpeg Suite
 echo "Compiling and installing the FFmpeg Suite"
 cd ~/ffmpeg_sources
-wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
+wget -c http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
 tar xjvf ffmpeg-snapshot.tar.bz2
 cd ffmpeg
 PATH="$HOME/bin:$PATH" 
@@ -533,12 +533,12 @@ WORDPRESS(){
 
 #Download WordPress
 
-#You can download WordPress from wordpress.org using the wget command. Helpfully, a copy of the latest version of WordPress is always available at wordpress.org/latest.tar.gz and wordpress.org/latest.zip, so you can grab the latest version without having to look it up on the website. At the time of writing, this is version 4.5.
+#You can download WordPress from wordpress.org using the wget -c command. Helpfully, a copy of the latest version of WordPress is always available at wordpress.org/latest.tar.gz and wordpress.org/latest.zip, so you can grab the latest version without having to look it up on the website. At the time of writing, this is version 4.5.
 #Navigate to /var/www/html/, and download WordPress to this location. You’ll need to empty the folder first (be sure to check you’re not deleting files you need before running rm); change the ownership of this folder to the pi user too.
 
 cd /var/www/html/
 #sudo rm *
-sudo wget http://wordpress.org/latest.tar.gz
+sudo wget -c http://wordpress.org/latest.tar.gz
 #Now extract the tarball, move the contents of the folder it extracted (wordpress) to the current directory and remove the (now empty) folder and the tarball to tidy up:
 sudo tar xzf latest.tar.gz
 sudo mv wordpress/* .
@@ -670,7 +670,7 @@ source ~/.rvm/scripts/rvm
 echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
 #source ~/.bashrc
 source ~/.rvm/scripts/rvm
-RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+RUBYVERSION=$(wget -c https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
 rvm install $RUBYVERSION
 rvm use $RUBYVERSION --default
 ruby -v
@@ -690,7 +690,7 @@ ruby -v
 
 #exec $SHELL
 
-#RUBYVERSION=$(wget https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
+#RUBYVERSION=$(wget -c https://raw.githubusercontent.com/rapid7/metasploit-framework/master/.ruby-version -q -O - )
 #rbenv install $RUBYVERSION
 #rbenv global $RUBYVERSION
 #ruby -v
@@ -841,14 +841,14 @@ sudo make install
 }
 
 WIFITE(){
-wget https://raw.github.com/derv82/wifite/master/wifite.py
+wget -c https://raw.github.com/derv82/wifite/master/wifite.py
 chmod +x wifite.py
 #./wifite.py
 }
 
 FERN(){
 cd
-wget http://www.fern-pro.com/download
+wget -c http://www.fern-pro.com/download
 sudo dpkg -i Fern*.deb
 }
 
