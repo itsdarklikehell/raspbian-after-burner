@@ -89,16 +89,22 @@ AWSMRETRPIBGM(){
 #	for more instructions please read:
 #	https://retropie.org.uk/forum/topic/347/background-music-continued-from-help-support
 #
-$INSTLL wget python-pygame
+##check my github
 cd
-mkdir PyScript
-cd PyScript
-wget https://pastebin.com/raw/7E9JiZGQ
-cat 7E9JiZGQ > bgm-v103.py
-sudo nano bgm-v103.py
-echo "Run 'sudo nano /etc/rc.local'"
-echo "Above exit 0, put the following code:"
-echo "'(sudo python /home/pi/PyScripts/bgm-v103.py) &'"
+git clone https://github.com/itsdarklikehell/RetroPie-Bgm
+cd RetroPie-Bgm/
+chmod +x *.sh
+./install.sh
+#$INSTLL wget python-pygame
+#cd
+#mkdir PyScript
+#cd PyScript
+#wget https://pastebin.com/raw/7E9JiZGQ
+#cat 7E9JiZGQ > bgm-v103.py
+#sudo nano bgm-v103.py
+#echo "Run 'sudo nano /etc/rc.local'"
+#echo "Above exit 0, put the following code:"
+#echo "'(sudo python /home/pi/PyScripts/bgm-v103.py) &'"
 }
 
 CRE8AP(){
@@ -598,18 +604,18 @@ UPGR8
 
 #RETROPIE
 #RETROPIESETUP
-#AWSMRETRPIBGM
+###AWSMRETRPIBGM
 #CRE8AP
 #RASPAP
 #EMBY
-#BLATHER
+BLATHER
 #PIVPN ## NEEDDS FIXING (openvpn conflicts)
 #OPENVPN ## NEEDS FIXING (pivpn conflicts)
-#SSHFS
+SSHFS
 #FFMPEG
 #ENABLEFFMPEGRETROPIE
-#XRDP
-#MPG123
+XRDP
+MPG123
 #NGINX
 #APACHE
 #PHP
@@ -914,32 +920,31 @@ sudo make install
 
 #METASPLOIT
 #ARMITAGE
-#FLUXION
-#HYDRA
-#WIRESHARK
-#SQLMAP
-#CAIN
-#NIKTO
-#ETHERAPE
-#ETTERCAP
-#KISMET
-#NETCAT
-#NGREP
-#NTOP
-#AIRCRACK
-#WORDLISTS
-#REAVER
-#PIXIEWPS
-#WIFITE
+FLUXION
+HYDRA
+WIRESHARK
+SQLMAP
+CAIN
+NIKTO
+ETHERAPE
+ETTERCAP
+KISMET
+NETCAT
+NGREP
+NTOP
+AIRCRACK
+WORDLISTS
+REAVER
+PIXIEWPS
+WIFITE
 #FERN  ## NEEDS FIXING
-#CRUNCH
+CRUNCH
 #WASH ## NEEDS FIXING
-#SETOOLKIT
-#NMAP
-#MITMF
-#P2PADB
-#nexutil
-
+SETOOLKIT
+NMAP
+MITMF
+P2PADB
+#NEXUTIL
 }
 ### Installing games
 INSTALLGAMES(){
