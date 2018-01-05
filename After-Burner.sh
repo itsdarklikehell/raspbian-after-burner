@@ -645,6 +645,12 @@ QUASSEL-CLIENT
 ### Instaling ends here
 INSTALLHACKTOOLS(){
 
+HAXORPI(){
+git clone https://github.com/vay3t/hax0rpi
+cd hax0rpi
+chmod +x hax0rpi
+./hax0rpi
+}
 METASPLOIT(){
 echo "installing metasploit" | $OUTPUT
 # QUICK AND DIRTY (NIGHTLY)
@@ -918,6 +924,7 @@ make
 sudo make install
 }
 
+HAXORPI
 #METASPLOIT
 #ARMITAGE
 FLUXION
