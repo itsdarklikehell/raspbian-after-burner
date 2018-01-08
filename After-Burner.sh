@@ -606,23 +606,23 @@ UPGR8
 #RETROPIESETUP
 ###AWSMRETRPIBGM
 #CRE8AP
-#RASPAP
+RASPAP
 #EMBY
-BLATHER
+#BLATHER
 #PIVPN ## NEEDDS FIXING (openvpn conflicts)
 #OPENVPN ## NEEDS FIXING (pivpn conflicts)
-SSHFS
+#SSHFS
 #FFMPEG
 #ENABLEFFMPEGRETROPIE
-XRDP
-MPG123
+#XRDP
+#MPG123
 #NGINX
 #APACHE
 #PHP
 #MYSQL
 #WORDPRESS
-QUASSEL-CORE
-QUASSEL-CLIENT
+#QUASSEL-CORE
+#QUASSEL-CLIENT
 
 #choice=$(whiptail --title "Check list example" --separate-output --checklist \
 #"Choose what you would like to install" 20 78 4 \
@@ -651,6 +651,7 @@ cd hax0rpi
 chmod +x hax0rpi
 ./hax0rpi
 }
+
 METASPLOIT(){
 echo "installing metasploit" | $OUTPUT
 # QUICK AND DIRTY (NIGHTLY)
