@@ -19,3 +19,11 @@ git clone https://github.com/itsdarklikehell/raspbian-after-burner
 cd raspbian-after-burner
 chmod +x After-Burner.sh
 ./After-Burner.sh
+
+---
+
+## 🎥 Gource Visualization
+
+De ontwikkelhistorie van dit project in een film:
+
+<video src="https://raw.githubusercontent.com/itsdarklikehell/raspbian-after-burner/master/gource.mp4" controls width="100%"></video>
