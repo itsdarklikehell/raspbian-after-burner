@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euo pipefail
 
 ## ***** todo *****
 #mpd
@@ -169,7 +170,9 @@ echo "www-data ALL=(ALL) NOPASSWD:/etc/raspap/hostapd/disablelog.sh"
 
 echo "Once those modifications are done, git clone the files to /var/www/html. Note: for older versions of Raspbian (before Jessie, May 2016) use /var/www instead."
 
-sudo rm -rf /var/www/html
+if [ -d /var/www/html ]; then
+  sudo rm -rf /var/www/html
+fi
 sudo git clone https://github.com/billz/raspap-webgui /var/www/html
 
 echo "Set the files ownership to www-data user."
@@ -237,7 +240,7 @@ chmod +x Blather-Installer
 }
 
 PIVPN(){
-curl -sSL http://install.pivpn.io | sudo bash
+curl -sSL http://install.pivpn.io -o /tmp/pivpn-installer.sh && sudo bash /tmp/pivpn-installer.sh && rm -f /tmp/pivpn-installer.sh
 }
 
 OPENVPN(){
@@ -671,7 +674,7 @@ $INSTLL build-essential libreadline-dev libssl-dev libpq5 libpq-dev libreadline5
 #Installing Ruby using RVM:
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
 #curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
-curl -sSL https://get.rvm.io | bash -s stable --ruby --auto-dotfiles
+curl -sSL https://get.rvm.io -o /tmp/rvm-installer.sh && bash /tmp/rvm-installer.sh stable --ruby --auto-dotfiles && rm -f /tmp/rvm-installer.sh
 #curl -sSL https://get.rvm.io | bash -s stable --ruby
 source ~/.rvm/scripts/rvm
 echo "source ~/.rvm/scripts/rvm" >> ~/.bashrc
