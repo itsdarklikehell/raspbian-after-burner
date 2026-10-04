@@ -171,7 +171,7 @@ echo "www-data ALL=(ALL) NOPASSWD:/etc/raspap/hostapd/disablelog.sh"
 echo "Once those modifications are done, git clone the files to /var/www/html. Note: for older versions of Raspbian (before Jessie, May 2016) use /var/www instead."
 
 if [ -d /var/www/html ]; then
-  sudo rm -rf /var/www/html
+  sudo rm -rf /var/www/html/*
 fi
 sudo git clone https://github.com/billz/raspap-webgui /var/www/html
 
@@ -545,7 +545,7 @@ sudo wget -c http://wordpress.org/latest.tar.gz
 #Now extract the tarball, move the contents of the folder it extracted (wordpress) to the current directory and remove the (now empty) folder and the tarball to tidy up:
 sudo tar xzf latest.tar.gz
 sudo mv wordpress/* .
-sudo rm -rf wordpress latest.tar.gz
+sudo rm -rf wordpress/ latest.tar.gz
 #Running the ls or (tree -L 1) command here will show you the contents of a WordPress project:
 #.
 #├── index.php
